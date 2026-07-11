@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bai3gsmlaij48"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4vryn6nsdwar" path="res://Diamond.obj" id="1"]
+[ext_resource type="Script" uid="uid://c2hh2qljydhbm" path="res://Diamond.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bqw4dv5w3s7gf" path="res://GetParticle.png" id="3_vjxum"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v601g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v601g"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ptpe0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_v601g"]
+resource_name = "diamond"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(3.03143, 0.307786),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hg8oc"]
+_data = {
+&"RESET": SubResource("Animation_ptpe0"),
+&"diamond": SubResource("Animation_v601g")
+}
+
+[sub_resource type="Curve" id="Curve_bu54h"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.245856, 1), 0.0, 0.0, 0, 0, Vector2(0.748619, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ptpe0"]
+curve = SubResource("Curve_bu54h")
+
+[sub_resource type="Curve" id="Curve_hg8oc"]
+_limits = [0.0, 5.0, 0.0, 2.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1.00216), 0.0, 0.0, 0, 0, Vector2(2, 5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ejmm3"]
+curve = SubResource("Curve_hg8oc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t4j52"]
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 0.1
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 180.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 10, 0)
+scale_curve = SubResource("CurveTexture_ejmm3")
+alpha_curve = SubResource("CurveTexture_ptpe0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_le7s2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_vjxum")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_77rxi"]
+material = SubResource("StandardMaterial3D_le7s2")
+
+[node name="Diamond" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 0
+script = ExtResource("2")
+color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v601g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_v601g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hg8oc")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 1
+lifetime = 3.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_t4j52")
+draw_pass_1 = SubResource("QuadMesh_77rxi")
+
+[connection signal="body_entered" from="." to="." method="_on_Diamond_body_entered"]

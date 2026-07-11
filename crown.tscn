@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dmtqgdthc1rl8"]
+
+[ext_resource type="ArrayMesh" uid="uid://chnk1likaan36" path="res://crown.tres" id="1_760h5"]
+[ext_resource type="Texture2D" uid="uid://bi33owy3t41ql" path="res://PCrownT.png" id="2_m86m2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30axw"]
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("2_m86m2")
+
+[node name="crown" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = ExtResource("1_760h5")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_30axw")
