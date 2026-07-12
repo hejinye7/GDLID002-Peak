@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://cejtv1wcs21v" path="res://[Scenes]/DefaultScene/jump.gd" id="9_dmiec"]
 [ext_resource type="Script" uid="uid://1drpur8av4v2" path="res://[Scenes]/DefaultScene/ChangeSpeedTrigger.gd" id="12_m86vw"]
 [ext_resource type="Script" uid="uid://jh721jibxryt" path="res://[Scenes]/DefaultScene/MovingPosMaxNew.gd" id="16_6nj03"]
+[ext_resource type="PackedScene" uid="uid://b5hb8j8w782ki" path="res://#Template/trigger.tscn" id="16_xwfd1"]
+[ext_resource type="Script" uid="uid://bev0h34up6j0c" path="res://#Template/[Scripts]/CameraScripts/CameraTrigger.gd" id="17_qjyx0"]
 [ext_resource type="PackedScene" uid="uid://0xnvkyq0e56a" path="res://[Scenes]/DefaultScene/triggerscaled.tscn" id="18_kseew"]
 [ext_resource type="Script" uid="uid://fd8r2kq3fyvb" path="res://[Scenes]/DefaultScene/customanimplay.gd" id="19_i04bb"]
 [ext_resource type="PackedScene" uid="uid://brdmblcywuklx" path="res://#Template/Player.tscn" id="19_kmo8t"]
@@ -28168,7 +28170,19 @@ need_time = 5.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 9/camera ditrction 2 (2)/CameraTrigger_0" index="0" unique_id=299330591]
 shape = SubResource("BoxShape3D_f801i")
 
-[node name="BasicOBJ_Group" type="Node3D" parent="." index="30" unique_id=749701900]
+[node name="Trigger2" parent="." index="30" unique_id=608483111 instance=ExtResource("16_xwfd1")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.5308163, -0.5, -0.38469553)
+
+[node name="Node3D" type="Node3D" parent="Trigger2" index="2" unique_id=194662835]
+script = ExtResource("17_qjyx0")
+offset = Vector3(6.3091984, 7.6989164, -0.17972268)
+camera_rotation = Vector3(-0.4345676, 1.7000042, -1.0231673)
+field_of_view = 70.29999
+duration = 0.0
+use_time = true
+trigger_time = 0.1
+
+[node name="BasicOBJ_Group" type="Node3D" parent="." index="31" unique_id=749701900]
 
 [node name="Player" parent="BasicOBJ_Group" index="0" unique_id=1905697100 instance=ExtResource("19_kmo8t")]
 firstDirection = Vector3(0, -90, 0)
@@ -28198,7 +28212,7 @@ shadow_enabled = true
 [node name="gameui" parent="BasicOBJ_Group" index="4" unique_id=256348809 instance=ExtResource("22_pcn4u")]
 crown_no_light = ExtResource("23_3myp5")
 
-[node name="Tapper" type="Node3D" parent="." index="31" unique_id=2083426285 node_paths=PackedStringArray("box_holder")]
+[node name="Tapper" type="Node3D" parent="." index="32" unique_id=2083426285 node_paths=PackedStringArray("box_holder")]
 script = ExtResource("8_f3e83")
 box_holder = NodePath(".")
 

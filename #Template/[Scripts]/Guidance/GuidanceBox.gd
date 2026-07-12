@@ -14,29 +14,22 @@ var _index: int = 0
 
 var triggered: bool = false
 var _displayed: bool = false
-var _initialized: bool = false
 
 func _ready() -> void:
+	_player = Player.instance
 	_root = $".."
 	_sprite = $"../Sprite3D"
 	_trigger_effect = load("res://#Template/[Resources]/Triggered.tscn")
 
+	# Unity: if (Distance > appearDistance) Disappear(false);
+	# Unity 的 Distance 返回 sqrMagnitude，直接对比 appearDistance（不做平方）
+	var dist_sq := global_position.distance_squared_to(_player.global_position)
+	if dist_sq > appear_distance:
+		_disappear(false)
+
 func _process(_delta: float) -> void:
 	if triggered:
 		return
-
-	if not _player:
-		_player = Player.instance
-		if not _player:
-			return
-
-	# 首次获取到 Player 时，检查初始距离
-	if not _initialized:
-		_initialized = true
-		var init_dist_sq := global_position.distance_squared_to(_player.global_position)
-		if init_dist_sq > appear_distance:
-			_disappear(false)
-			return
 
 	# 合并两次距离计算为一次（性能优化：distance_squared_to 是关键热点）
 	var dist_sq := global_position.distance_squared_to(_player.global_position)
