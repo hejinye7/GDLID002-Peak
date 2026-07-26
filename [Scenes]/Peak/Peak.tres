@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://cpejwvo4pns1"
 
 [resource]
 script = ExtResource("6_643w3")
-saveID = 1
+saveID = 2
 levelTitleKey = "Peak"
 speed = 15.0
 levelAudioClip = ExtResource("5_bcoo5")
