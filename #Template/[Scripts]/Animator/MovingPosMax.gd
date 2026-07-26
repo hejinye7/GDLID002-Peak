@@ -18,6 +18,17 @@ extends Node3D
 ## 过渡类型
 @export var transition_type: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR
 
+@export_group("回溯设置")
+## 启用后，复活时不将动画回滚到触发前的位置
+@export var dont_revive: bool = false
+
+var _is_playing: bool = false
+var _finished: bool = false
+var _trigger_index: int = -1
+var _original_position: Vector3 = Vector3.ZERO
+var _animation_target: Node3D = null
+var _active_tween: Tween = null
+
 ## 自定义触发信号(保留向后兼容)
 signal on_animation_start
 signal on_animation_end
@@ -76,16 +87,30 @@ func trigger(_body: Node3D) -> void:
 	play_sequence()
 
 func play_sequence() -> void:
+	if _finished and not Engine.is_editor_hint():
+		return
 	if target_positions.is_empty():
 		push_warning("没有设置路径点!")
 		return
-	
+
+	_is_playing = true
+	if not Engine.is_editor_hint():
+		_finished = true
+		_trigger_index = LevelManager.checkpoint_count
+		LevelManager.remove_revive_listener(_on_revive)
+		if not dont_revive:
+			LevelManager.add_revive_listener(_on_revive)
+
 	on_animation_start.emit()
 	var target: Node3D = animated_object if animated_object else self
 	var original_pos: Vector3 = target.global_position
-	
+	if not Engine.is_editor_hint():
+		_animation_target = target
+		_original_position = original_pos
+
 	var tween: Tween = create_tween()
-	
+	_active_tween = tween
+
 	# 从初始位置出发,依次移动到每个路径点
 	for i in range(target_positions.size()):
 		var pos: Vector3 = target_positions[i]
@@ -104,9 +129,27 @@ func play_sequence() -> void:
 	tween.tween_callback(func():
 		if Engine.is_editor_hint():
 			target.global_position = original_pos
+		_is_playing = false
+		_active_tween = null
 		on_animation_end.emit()
 	)
 	print("动画开始播放,路径点数: ", target_positions.size())
+
+func _on_revive() -> void:
+	LevelManager.remove_revive_listener(_on_revive)
+	LevelManager.CompareCheckpointIndex(_trigger_index, func() -> void:
+		if _active_tween and _active_tween.is_valid():
+			_active_tween.kill()
+		_active_tween = null
+		if is_instance_valid(_animation_target):
+			_animation_target.global_position = _original_position
+		_is_playing = false
+		_finished = false
+	)
+
+func _exit_tree() -> void:
+	if not Engine.is_editor_hint():
+		LevelManager.remove_revive_listener(_on_revive)
 
 func play_() -> void:
 	play_sequence()
