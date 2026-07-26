@@ -1,89 +1,157 @@
-# AGENTS.md — GodotLine
+# AGENTS.md — Godot Line
 
-## What This Is
+## Project Overview
 
-A Dancing Line game template for **Godot 4.6+** (GDScript). Players auto-move along a line, clicking to turn. All game content lives in `#Template/` (directories prefixed with `#`). No automated tests — testing is manual via the Godot editor (F5).
+Godot 4.7 Dancing Line game template (GDScript). No CLI build/test/lint — all development is in the Godot editor. Physics: Jolt Physics on separate thread. Renderer: mobile.
 
-**Note**: This repo also contains `MiMo2API/`, an unrelated Python/FastAPI proxy project. Ignore it when working on the game.
+**README says 4.6 but `project.godot` config/features is 4.7.** Trust `project.godot`.
 
-## Running
-
-Open `project.godot` in Godot Engine 4.6+, press F5. Sample scene: `#Template/[Scenes]/Sample/Sample.tscn`. Export preset: Windows Desktop only. Editor plugin `addons/template/` adds a welcome/README page on first open.
-
-## Critical Conventions
-
-- **Naming**: `lowerCamelCase` vars/funcs, `PascalCase` class_name, `UPPER_SNAKE_CASE` constants
-- **Physics layers**: 1=Player, 2=BaseFloor, 3=BaseWall. Player `collision_mask=2`, wall Area3D child `collision_mask=4`
-- **Default speed**: 12.0, **Gravity**: `Vector3(0, -9.3, 0)`
-- **Engine**: Jolt Physics on separate thread, mobile renderer
-
-## Architecture Essentials
-
-### LevelManager is RefCounted, NOT a Node
-
-Has no `_ready()`, no tree access. Use `Player.instance.get_tree()` instead. State machine: `Waiting → Playing → Moving → Died → Completed`.
-
-### Singleton Pattern
-
-Key nodes: `class_name` + `static var instance` + `instance = self` in `_ready()`. Applies to Player, CameraFollower, GuidanceController, etc. Static RefCounted singletons: AudioManager, ObjectPool, SetLatency.
-
-### Trigger System — Three Modes Coexist
-
-When adding new triggers, use **Mode 1** (pure component):
-
-| Mode | Base | How to add |
-|------|------|-----------|
-| **Pure component** | `extends Node3D` | Child of BaseTrigger, implement `func trigger(body: Node3D)` |
-| **Self-container** | `extends BaseTrigger` | Override `_on_triggered(body)` |
-| **Old mode** | `extends Area3D` | Own `body_entered` signal (legacy, don't use for new triggers) |
-
-See `Comp.md` for full trigger architecture.
-
-### @tool Editor Scripts
-
-Guard `_ready()` with `Engine.is_editor_hint()`. The `@export var execute: bool` checkbox pattern: getter returns `false`, setter triggers one-shot generation.
-
-### Revive / Checkpoint
-
-Checkpoint captures full state (transform, camera, fog, light, ambient, material colors, music position, anim time). `Checkpoint.revive()` restores everything. Crown revive costs 1 crown from `LevelManager.crown`.
-
-### AudioManager
-
-Static methods: `AudioManager.play_clip(clip, volume)` for SFX, `AudioManager.play_track(clip, volume)` for music, `AudioManager.fade_out()`. Each `play_clip` creates a new AudioStreamPlayer (not yet pooled).
-
-## Gotchas
-
-- `move_and_slide()` must be called **after** gravity, **before** `is_on_floor()` — wrong order = floor detection always false
-- Renaming/deleting a script requires updating all `.tscn` references manually or scenes break
-- `RoadMaker.new_road()` must fire via signal before `_physics_process()` starts or `road` stays null
-- `_delay_applied` flag guards music delay on revive — must not re-apply
-- Jolt Physics on separate thread — thread safety matters for physics state access
-- `SetMaterialColor.gd` is part of checkpoint restore chain via `revive_notification`
-- `@export var execute: bool` with getter returning `false` is the standard one-shot editor tool pattern (NoteReader, BeatmapReader, etc.)
-
-## Repo Structure
-
-**This repo contains two unrelated projects.** The Godot game template is the primary project.
+## Project Structure
 
 ```
-#Template/              — All game content (scripts, scenes, resources, music)
-  [Scripts]/Level/      — Player, LevelManager, AudioManager, ObjectPool, RoadMaker, gameui
-  [Scripts]/Trigger/    — Pure components (Jump, Speed, KillPlayer...) + Single/ (BaseTrigger, Checkpoint, Crown, Gem)
-  [Scripts]/CameraScripts/ — CameraFollower (new) + OldCameraFollower (legacy)
-  [Scripts]/Animator/   — AnimatorBase, PosAnimator, LocalPosAnimator, LocalRotAnimator, MovingPosMax
-  [Scripts]/Settings/   — LevelData, CameraSettings, FogSettings, LightSettings resources
-  [Scenes]/             — Sample/Sample.tscn, DefaultScene/Default.tscn
+#Template/           — Core template: scenes, scripts, resources, materials
+  [Scripts]/         — All GDScript source (10 subdirectories)
+  [Resources]/       — PackedScenes, LevelData, models, UI
+  [Materials]/       — .tres material resources
+  [Music]/           — Audio files
+  *.tscn             — Template scenes (Player, trigger, Gem, etc.) — directly in #Template/ root, NOT in a [Scenes] subfolder
+[Scenes]/            — Level scenes only
+  DefaultScene/      — Default.tscn (the main playable scene)
+  Sample/            — Sample.tscn
 addons/
-  template/             — Editor plugin: shows welcome/README page on first project open
-  godot_mcp/            — Godot MCP (Model Context Protocol) integration plugin
-MiMo2API/               — Separate Python/FastAPI proxy project (NOT game code). Has its own README, venv, Dockerfile
+  godot_mcp/         — MCP server plugin (do not modify unless asked)
+  template/          — Editor plugin: toolbar menu, "新建关卡" dialog
 ```
 
-`.agents/`, `.codex/`, `.devin/`, `.opencode/` are AI tool config directories, not game content.
+**Bracket-named directories** (`[Scripts]`, `[Resources]`, etc.) are a project convention, not Godot special syntax.
 
-## Companion Docs
+## Deleted / Renamed Files (Do Not Recreate)
 
-- `CLAUDE.md` — full architecture reference with detailed trigger file map, camera systems, audio system, beatmap import, and all gotchas (read for deep context)
-- `Comp.md` — trigger system architecture: three coexistence modes, BaseTrigger details, revive integration, code patterns
-- `TODO.md` — feature parity tracking vs Unity 冰焰模板 V4.7.6 (P0–P3 priorities)
-- `CONTRIBUTING.md` — branch naming (GD-xxx), PR workflow, GDScript style conventions
+| Old name | Status |
+|----------|--------|
+| `Trigger.gd` | Deleted — replaced by `BaseTrigger` |
+| `customanimplay.gd` | Deleted — merged into `PlayAnimator.gd` |
+| `ChangeSpeedTrigger.gd` | Renamed to `Speed.gd` |
+| `SetActiveTrigger.gd` | Renamed to `SetActive.gd` |
+| `LocalTeleportTrigger.gd` | Renamed to `Teleport.gd` |
+| `ChangeTurn.gd` | Renamed to `ChangeDirection.gd` |
+| `FogColorChanger.gd` | Does not exist — use `SetFog.gd` |
+| `addons/mpm_importer/` | Does not exist |
+
+## Trigger System — Three Modes Coexist
+
+This is the most important architectural detail. **New triggers should use Mode 1.**
+
+| Mode | Base | Collision handled by | Example |
+|------|------|---------------------|---------|
+| **Pure component** (Mode 1) | `extends Node3D` | Parent `BaseTrigger` node | `Jump.gd`, `KillPlayer.gd`, `Speed.gd` |
+| **Self-contained** (Mode 2) | `extends BaseTrigger` (Area3D) | Itself | `PyramidTrigger.gd`, `PropertyModifierTrigger.gd` |
+| **Legacy** (Mode 3) | `extends Area3D` | Itself via `body_entered` | `Gem.gd`, `Checkpoint.gd`, `CameraTrigger.gd` |
+
+**Mode 1 (pure component):** Implement `trigger(body: Node3D)` method. Place as child of a `BaseTrigger` node (or `trigger.tscn` instance). `BaseTrigger` uses duck typing — it calls `trigger(body)` on any child that has that method. No inheritance required.
+
+**BaseTrigger** (`#Template/[Scripts]/Trigger/Single/BaseTrigger.gd`): `class_name BaseTrigger extends Area3D`. Exports: `one_shot`, `require_playing`, `track_exit`, `debug_mode`. Collects behaviors in `_ready()` via `_collect_behaviors()`.
+
+## Core Singletons (All Static / RefCounted)
+
+- **`LevelManager`** — `class_name LevelManager extends RefCounted`. All static. Game state machine (`GameStatus` enum), checkpoint data, revive listener system (`add_revive_listener`/`emit_revive`). NOT a Node — cannot use `_process` or signals in the traditional sense.
+- **`AudioManager`** — `class_name AudioManager extends RefCounted`. All static. `play_clip()`, `play_track()`, `fade_out()`, `stop()`. Gets music player from `Player.instance.get_node("MusicPlayer")`.
+- **`SetLatency`** — `class_name SetLatency extends RefCounted`. Persists delay/volume to ConfigFile at `user://settings.cfg`.
+- **`Player.instance`** — Static var on Player (CharacterBody3D). Set in `_ready()`.
+
+## Key Scenes and Entrypoints
+
+- **Default scene:** `[Scenes]/DefaultScene/Default.tscn` (not Sample — Sample exists but Default is the primary)
+- **Player scene:** `#Template/Player.tscn` — instantiated inside level scenes under `BasicOBJ_Group/Player`
+- **Trigger container:** `#Template/trigger.tscn` — reusable BaseTrigger scene, add component children to it
+- **Start page:** `#Template/[Resources]/StartPage.tscn` — dynamically instantiated by `Player._ready()`
+- **Debug overlay:** `#Template/[Resources]/DebugOverlay.tscn` — dynamically instantiated by `Player._ready()`, toggle with D key (debug builds only)
+- **Game UI:** `#Template/[Resources]/GAMEUI.tscn` — game over screen with revive/replay
+
+## Input Controls
+
+Defined in `project.godot`:
+- **turn** action: Mouse Left + Space
+- **R**: Reload level (in `Player._input`)
+- **K**: Kill player (in `Player._input`)
+- **D**: Toggle debug overlay (debug builds only, in `Player._input`)
+- **S**: Save Roads.tscn (in `RoadMaker._input`)
+
+## GDScript Conventions
+
+- `lowerCamelCase` for variables and functions
+- `PascalCase` for class names (`class_name`)
+- `UPPER_SNAKE_CASE` for constants
+- `lowerCamelCase` for signals
+- All GDScript under `#Template/[Scripts]` must use static type annotations for variables (`var value: Type`), including local variables and exported properties. Use explicit types instead of leaving variables untyped; inferred declarations (`:=`) should be replaced with an explicit type when the type is known. This avoids type inference errors.
+- Function parameters and return values under `#Template/[Scripts]` must also be explicitly typed.
+- `@tool` annotation used extensively for editor preview (animators, triggers, resources)
+- **`@tool` script buttons:** Any `@tool` script that modifies data via button presses (e.g. `_set`, exported button actions) must call `EditorUndoRedoManager` to register the action AND call `notify_property_list_changed()` so the Inspector refreshes. Without this, changes are invisible to the undo system and the Inspector may show stale data.
+- Follow [Godot GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html)
+
+## Camera System — Two Generations
+
+Two camera systems coexist, toggled by `Checkpoint.UsingOldCameraFollower`:
+- **New:** `CameraFollower` (class_name, static var instance) + `CameraTrigger.gd` (pure component) + `CameraShakeTrigger.gd`
+- **Old:** `OldCameraFollower` (class_name, static var instance) + `OldCameraTrigger.gd` (legacy Area3D) + `OldCameraShakeTrigger.gd`
+
+New triggers use `CameraFollower.instance.trigger(...)`. Old triggers modify `OldCameraFollower` properties directly.
+
+## Level Creation
+
+Use the editor plugin: **Template > 新建关卡** in the toolbar. Creates `[Scenes]/<name>/<name>.tscn` + `<name>.tres` (LevelData) from template. The plugin deep-copies LevelData and assigns unique saveID.
+
+## Common Pitfalls
+
+- `LevelManager` is `RefCounted`, not a `Node`. It has no `_process`, no scene tree position. All members are static.
+- `Player.instance` is `null` in editor — always null-check before runtime use.
+- `BaseTrigger` uses duck typing (`has_method("trigger")`), not virtual methods or inheritance for behavior dispatch.
+- `Gem.gd` filename is `Gem.gd`, not `Diamond.gd`. The field is `LevelManager.gem`, not `.diamond`.
+- RoadMaker visual/collision separation: `_road_visuals` (MeshInstance3D, scaled per frame) vs `_road_collisions` (CollisionShape3D, finalized once). Don't mix them up.
+- Player tail (ObjectPool, 256 MeshInstance3D) and RoadMaker road are **two independent systems**.
+- `FogSettings` resource drives fog, not a standalone FogColorChanger script.
+- Physics layers: 1=Player, 2=BaseFloor, 3=BaseWall.
+
+## Performance Best Practices
+
+### Avoid Recursive SceneTreeTimer Creation
+**Problem:** Using `SceneTreeTimer` in recursive patterns (creating a new timer in the timeout callback) causes frequent temporary object allocation, increasing GC pressure and causing FPS drops during gameplay.
+
+**Example (problematic):**
+```gdscript
+func _poll() -> void:
+    # Do something
+    var timer: SceneTreeTimer = get_tree().create_timer(0.5)
+    timer.timeout.connect(_poll)  # Recursive call creates new timer each time
+```
+
+**Solution:** Use persistent `Timer` nodes instead:
+```gdscript
+var _poll_timer: Timer
+
+func _ready() -> void:
+    _poll_timer = Timer.new()
+    _poll_timer.wait_time = 0.5
+    _poll_timer.one_shot = false
+    _poll_timer.autostart = true
+    _poll_timer.timeout.connect(_poll)
+    add_child(_poll_timer)
+
+func _poll() -> void:
+    # Do something (no timer creation)
+```
+
+**Fixed example:** `DebugOverlay.gd` was causing FPS drops due to recursive SceneTreeTimer usage. Fixed by using persistent Timer nodes.
+
+### Cache Expensive Node Lookups
+**Problem:** Calling `get_viewport().get_camera_3d()` or similar lookups every frame is expensive.
+
+**Solution:** Cache the reference once, update only when needed:
+```gdscript
+var _cached_camera: Camera3D
+
+func _ready() -> void:
+    _cached_camera = get_viewport().get_camera_3d()
+```
+
+**Note:** `SetFog.gd` uses `get_viewport().get_camera_3d()` but only on trigger activation (not per-frame), so it's acceptable.
