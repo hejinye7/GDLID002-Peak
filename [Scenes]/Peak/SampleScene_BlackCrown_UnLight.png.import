@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2esphxdbj8nn"
-path.s3tc="res://.godot/imported/SampleScene_30_.png-2718f85684127fda5cd1630b4cc5ce62.s3tc.ctex"
+uid="uid://kxkilfu215lc"
+path.s3tc="res://.godot/imported/SampleScene_BlackCrown_UnLight.png-5d6cfb37540de09d8c9d7f4aff9f51c0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://[Scenes]/DefaultScene/SampleScene_30_.png"
-dest_files=["res://.godot/imported/SampleScene_30_.png-2718f85684127fda5cd1630b4cc5ce62.s3tc.ctex"]
+source_file="res://[Scenes]/Peak/SampleScene_BlackCrown_UnLight.png"
+dest_files=["res://.godot/imported/SampleScene_BlackCrown_UnLight.png-5d6cfb37540de09d8c9d7f4aff9f51c0.s3tc.ctex"]
 
 [params]
 
