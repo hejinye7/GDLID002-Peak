@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5k4v76x1s5tf"
-path.s3tc="res://.godot/imported/SampleScene_20_.png-2a38508b0053240aeaffcc9e34bb6e50.s3tc.ctex"
+uid="uid://bqon4m07f6hr0"
+path.s3tc="res://.godot/imported/SampleScene_40_.png-991a149cf07c15f0e08b36aad29db661.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://[Scenes]/DefaultScene/SampleScene_20_.png"
-dest_files=["res://.godot/imported/SampleScene_20_.png-2a38508b0053240aeaffcc9e34bb6e50.s3tc.ctex"]
+source_file="res://[Scenes]/Peak/SampleScene_40_.png"
+dest_files=["res://.godot/imported/SampleScene_40_.png-991a149cf07c15f0e08b36aad29db661.s3tc.ctex"]
 
 [params]
 

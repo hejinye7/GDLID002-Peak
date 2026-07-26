@@ -1,11 +1,12 @@
-[gd_scene format=3 uid="uid://sb0qpki6yytj"]
+[gd_scene format=3 uid="uid://0xnvkyq0e56a"]
 
-[ext_resource type="Script" uid="uid://ygm1wt0po7xo" path="res://[Scenes]/DefaultScene/trigger.gd" id="1"]
+[ext_resource type="Script" uid="uid://ygm1wt0po7xo" path="res://[Scenes]/Peak/trigger.gd" id="1_clwtc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2kce"]
 
 [node name="Trigger" type="Area3D" unique_id=1194761348]
-script = ExtResource("1")
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 0.1, 0, 2.5, 0)
+script = ExtResource("1_clwtc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=591286304]
 shape = SubResource("BoxShape3D_e2kce")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://butl2ivj8fcxb"
+path="res://.godot/imported/Loch Lomond - Marcus Warner.mp3-c91d2d809ab84c5922a11a2135693481.mp3str"
+
+[deps]
+
+source_file="res://[Scenes]/Peak/Loch Lomond - Marcus Warner.mp3"
+dest_files=["res://.godot/imported/Loch Lomond - Marcus Warner.mp3-c91d2d809ab84c5922a11a2135693481.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
