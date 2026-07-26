@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://cq7y41sswinln" path="res://#Template/[Scripts]/Guidance/GuidanceController.gd" id="8_f3e83"]
 [ext_resource type="Script" uid="uid://euy0ojg0n2sc" path="res://[Scenes]/Peak/SetFogLinear.gd" id="8_fsd5d"]
 [ext_resource type="PackedScene" uid="uid://cceydenrkikf3" path="res://#Template/[Resources]/GuidanceBox.tscn" id="8_jmy4o"]
-[ext_resource type="Script" uid="uid://cejtv1wcs21v" path="res://[Scenes]/Peak/jump.gd" id="9_dmiec"]
 [ext_resource type="Script" uid="uid://1drpur8av4v2" path="res://[Scenes]/Peak/ChangeSpeedTrigger.gd" id="12_m86vw"]
+[ext_resource type="Script" uid="uid://cu08nct5ud6vc" path="res://#Template/[Scripts]/Trigger/Jump.gd" id="14_sk26j"]
 [ext_resource type="PackedScene" uid="uid://0xnvkyq0e56a" path="res://[Scenes]/Peak/triggerscaled.tscn" id="18_kseew"]
 [ext_resource type="Script" uid="uid://fd8r2kq3fyvb" path="res://[Scenes]/Peak/customanimplay.gd" id="19_i04bb"]
 [ext_resource type="PackedScene" uid="uid://brdmblcywuklx" path="res://#Template/Player.tscn" id="19_kmo8t"]
@@ -10347,52 +10347,65 @@ libraries/ = SubResource("AnimationLibrary_cm0pq")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Trigger33" parent="Node3D" index="3" unique_id=878200558 instance=ExtResource("5_nbu6l")]
+[node name="Trigger33" type="Area3D" parent="Node3D" index="3" unique_id=867052251 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-5, 0, 8.742278e-08, 0, 1, 0, -4.371139e-07, 0, -1, -527.2603, 44.50001, 416.92975)
-script = ExtResource("9_dmiec")
+script = ExtResource("19_mgc26")
+
+[node name="Jump" type="Node3D" parent="Node3D/Trigger33" index="3" unique_id=2062820929]
+script = ExtResource("14_sk26j")
 height = 3.11
-mainline_path = NodePath("../MainLine")
 
-[node name="Trigger58" parent="Node3D" index="4" unique_id=763905281 instance=ExtResource("5_nbu6l")]
+[node name="Trigger58" type="Area3D" parent="Node3D" index="4" unique_id=376540239 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -529.2603, 46.50001, 431.37332)
-script = ExtResource("9_dmiec")
+script = ExtResource("19_mgc26")
+
+[node name="Jump" type="Node3D" parent="Node3D/Trigger58" index="3" unique_id=125334055]
+script = ExtResource("14_sk26j")
 height = 3.69
-mainline_path = NodePath("../MainLine")
 
-[node name="Trigger62" parent="Node3D" index="5" unique_id=464222531 instance=ExtResource("5_nbu6l")]
+[node name="Trigger62" type="Area3D" parent="Node3D" index="5" unique_id=984135767 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -542.2272, 48.727417, 436.37332)
-script = ExtResource("9_dmiec")
-height = 21.595
-mainline_path = NodePath("../MainLine")
+script = ExtResource("19_mgc26")
 
-[node name="Trigger110" parent="Node3D" index="6" unique_id=1864582444 instance=ExtResource("18_kseew")]
+[node name="Jump" type="Node3D" parent="Node3D/Trigger62" index="3" unique_id=4096233]
+script = ExtResource("14_sk26j")
+height = 21.595
+
+[node name="Trigger110" type="Area3D" parent="Node3D" index="6" unique_id=1195269656 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-06, 0, -0.09999998, -727, 64.5, 560.45447)
-script = ExtResource("9_dmiec")
-height = 1.0
-mainline_path = NodePath("../MainLine")
+script = ExtResource("19_mgc26")
+
+[node name="Jump" type="Node3D" parent="Node3D/Trigger110" index="3" unique_id=471156697]
+script = ExtResource("14_sk26j")
 
 [node name="Trigger111" parent="Node3D" index="7" unique_id=1194761348 instance=ExtResource("18_kseew")]
 transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-06, 0, -0.09999998, -727, 64.5, 560.96063)
 script = ExtResource("12_m86vw")
 new_speed = 20.0
 
-[node name="Trigger96" parent="Node3D" index="8" unique_id=23851656 instance=ExtResource("18_kseew")]
+[node name="Trigger96" type="Area3D" parent="Node3D" index="8" unique_id=83479402 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(7.944652e-08, 0, 0.1, 0, 4.9999995, 0, -10, 0, -8.742278e-09, -746, 49.5, 616)
-script = ExtResource("9_dmiec")
-height = 3.0
-mainline_path = NodePath("../MainLine")
+script = ExtResource("19_mgc26")
 
-[node name="Trigger99" parent="Node3D" index="9" unique_id=70402351 instance=ExtResource("18_kseew")]
+[node name="Jump" type="Node3D" parent="Node3D/Trigger96" index="3" unique_id=1570854778]
+script = ExtResource("14_sk26j")
+height = 3.0
+
+[node name="Trigger99" type="Area3D" parent="Node3D" index="9" unique_id=900253675 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -763, 49.5, 623)
-script = ExtResource("9_dmiec")
-height = 3.0
-mainline_path = NodePath("../MainLine")
+script = ExtResource("19_mgc26")
 
-[node name="Trigger103" parent="Node3D" index="10" unique_id=540434630 instance=ExtResource("18_kseew")]
+[node name="Jump" type="Node3D" parent="Node3D/Trigger99" index="3" unique_id=477892564]
+script = ExtResource("14_sk26j")
+height = 3.0
+
+[node name="Trigger103" type="Area3D" parent="Node3D" index="10" unique_id=1573476265 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -768, 49.5, 636)
-script = ExtResource("9_dmiec")
+script = ExtResource("19_mgc26")
+
+[node name="Jump" type="Node3D" parent="Node3D/Trigger103" index="3" unique_id=336862940]
+script = ExtResource("14_sk26j")
 height = 11.0
-mainline_path = NodePath("../MainLine")
 
 [node name="BaseFloor" parent="." index="2" unique_id=248258268 instance=ExtResource("3_nbu6l")]
 transform = Transform3D(8.835984, 0, 0, 0, 1, 0, 0, 0, 32.10497, -77.53093, -0.9525933, 64.75332)
@@ -14912,11 +14925,13 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/StaticBody3D" index="0" unique_id=660950847]
 shape = SubResource("ConvexPolygonShape3D_rmjr1")
 
-[node name="Trigger32" parent="PART 3/road part/泥土底座 (2)/草地面 (2)" parent_id_path=PackedInt32Array(1595206433) index="1" unique_id=1903612518 instance=ExtResource("5_nbu6l")]
+[node name="Trigger32" type="Area3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)" parent_id_path=PackedInt32Array(1595206433) index="1" unique_id=2064529197 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-0.43859655, -2.2182443e-08, 7.189158e-08, -5.057609e-07, 0.4, -3.1643123e-07, -1.1989441e-06, -2.2732132e-07, -0.28735635, -0.2109375, 0.75409335, 0.5545654)
-script = ExtResource("9_dmiec")
+script = ExtResource("19_mgc26")
+
+[node name="Jump" type="Node3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" index="3" unique_id=1846773385]
+script = ExtResource("14_sk26j")
 height = 6.5
-mainline_path = NodePath("../../../../../Node3D/MainLine")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/road part/泥土底座 (2)" parent_id_path=PackedInt32Array(627552863) index="1" unique_id=1661884975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014834106, 0)
@@ -15490,11 +15505,13 @@ collision_layer = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)/StaticBody3D" index="0" unique_id=1873796683]
 shape = SubResource("ConvexPolygonShape3D_735wm")
 
-[node name="Trigger38" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)" parent_id_path=PackedInt32Array(1254482000) index="1" unique_id=2125398082 instance=ExtResource("5_nbu6l")]
+[node name="Trigger38" type="Area3D" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)" parent_id_path=PackedInt32Array(1254482000) index="1" unique_id=1559170363 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(3.655752e-08, -1.2644051e-08, 0.22567163, -3.1643086e-07, 0.40000007, 1.8693296e-06, -0.28571388, 2.1675515e-07, -1.2143998e-06, -1.2965012, 0.55976367, 5.27005)
-script = ExtResource("9_dmiec")
+script = ExtResource("19_mgc26")
+
+[node name="Jump" type="Node3D" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)/Trigger38" index="3" unique_id=1433630927]
+script = ExtResource("14_sk26j")
 height = 16.0
-mainline_path = NodePath("../../../../../Node3D/MainLine")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/road part (2)/泥土底座 (4)" parent_id_path=PackedInt32Array(1057167966) index="2" unique_id=805077135]
 collision_layer = 2
@@ -29587,6 +29604,13 @@ duration = 0.0
 use_time = true
 trigger_time = 0.1
 
+[connection signal="body_entered" from="Node3D/Trigger33" to="Node3D/Trigger33" method="_on_body_entered"]
+[connection signal="body_entered" from="Node3D/Trigger58" to="Node3D/Trigger58" method="_on_body_entered"]
+[connection signal="body_entered" from="Node3D/Trigger62" to="Node3D/Trigger62" method="_on_body_entered"]
+[connection signal="body_entered" from="Node3D/Trigger110" to="Node3D/Trigger110" method="_on_body_entered"]
+[connection signal="body_entered" from="Node3D/Trigger96" to="Node3D/Trigger96" method="_on_body_entered"]
+[connection signal="body_entered" from="Node3D/Trigger99" to="Node3D/Trigger99" method="_on_body_entered"]
+[connection signal="body_entered" from="Node3D/Trigger103" to="Node3D/Trigger103" method="_on_body_entered"]
 [connection signal="body_entered" from="post动画的最开始触发/CustomAnimPlay_0" to="post动画的最开始触发/CustomAnimPlay_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 1/animator trigger/MovingPosMax_0" to="PART 1/animator trigger/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 1/animator trigger (3)/MovingPosMax_0" to="PART 1/animator trigger (3)/MovingPosMax_0" method="_on_body_entered"]
@@ -29617,10 +29641,12 @@ trigger_time = 0.1
 [connection signal="body_entered" from="PART 2/ca&ani trigger/MovingPosMax_0" to="PART 2/ca&ani trigger/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part/animator trigger13/MovingPosMax_0" to="PART 3/road part/animator trigger13/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part/animator trigger13/MovingPosMax_1" to="PART 3/road part/animator trigger13/MovingPosMax_1" method="_on_body_entered"]
+[connection signal="body_entered" from="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" to="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part (2)/jump trigger (1)/MovingPosMax_0" to="PART 3/road part (2)/jump trigger (1)/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part (2)/泥土底座 (4)/animator trigger14/MovingPosMax_0" to="PART 3/road part (2)/泥土底座 (4)/animator trigger14/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part (2)/泥土底座 (4)/animator trigger14/MovingPosMax_1" to="PART 3/road part (2)/泥土底座 (4)/animator trigger14/MovingPosMax_1" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part (2)/泥土底座 (4)/animator trigger14/MovingPosMax_2" to="PART 3/road part (2)/泥土底座 (4)/animator trigger14/MovingPosMax_2" method="_on_body_entered"]
+[connection signal="body_entered" from="PART 3/road part (2)/泥土底座 (4)/草地面 (4)/Trigger38" to="PART 3/road part (2)/泥土底座 (4)/草地面 (4)/Trigger38" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part (2)/Trigger (1)/MovingPosMax_0" to="PART 3/road part (2)/Trigger (1)/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/road part (2)/Trigger (2)/MovingPosMax_0" to="PART 3/road part (2)/Trigger (2)/MovingPosMax_0" method="_on_body_entered"]
 [connection signal="body_entered" from="PART 3/dirt floor/animator trigger15/MovingPosMax_0" to="PART 3/dirt floor/animator trigger15/MovingPosMax_0" method="_on_body_entered"]
