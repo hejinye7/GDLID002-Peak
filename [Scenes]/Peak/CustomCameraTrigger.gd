@@ -2,7 +2,6 @@ extends Node3D
 
 @export_group("Legacy Camera Settings")
 @export var use_legacy_parameters: bool = false
-@export var set_camera: NodePath
 @export var active_position: bool = true
 @export var new_add_position: Vector3 = Vector3.ZERO
 @export var active_rotate: bool = true
