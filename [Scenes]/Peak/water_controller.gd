@@ -8,14 +8,14 @@ extends MeshInstance3D
 	set(value):
 		if grid_size != value:
 			grid_size = value
-			if Engine.is_editor_hint():
+			if Engine.is_editor_hint() and is_node_ready():
 				call_deferred("_update_mesh")
 
 @export var subdivision = 8:
 	set(value):
 		if subdivision != value:
 			subdivision = value
-			if Engine.is_editor_hint():
+			if Engine.is_editor_hint() and is_node_ready():
 				call_deferred("_update_mesh")
 
 # Wave params: (amplitude, frequency, speed, phase)
@@ -41,18 +41,14 @@ extends MeshInstance3D
 var material : ShaderMaterial
 
 func _enter_tree():
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and mesh == null:
 		create_lowpoly_water()
 		setup_material()
 
-func _exit_tree():
-	if Engine.is_editor_hint():
-		mesh = null
-
 func _ready():
-	create_lowpoly_water()
-	setup_material()
 	if not Engine.is_editor_hint():
+		create_lowpoly_water()
+		setup_material()
 		print("Low Poly Water initialized with ", subdivision * subdivision, " triangles!")
 
 func _update_mesh():
@@ -105,7 +101,7 @@ func create_lowpoly_water():
 
 func setup_material():
 	material = ShaderMaterial.new()
-	var shader = load("res://water_shader.gdshader")
+	var shader = load("res://[Scenes]/Peak/water_shader.gdshader")
 	material.shader = shader
 	
 	# Enable depth texture reading
@@ -131,7 +127,3 @@ func update_shader_params():
 	material.set_shader_parameter("edge_threshold", edge_threshold)
 	material.set_shader_parameter("edge_softness", edge_softness)
 	material.set_shader_parameter("foam_color", foam_color)
-
-func _process(_delta):
-	if material:
-		update_shader_params()
