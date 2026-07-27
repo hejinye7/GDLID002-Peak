@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://c0whny0gf5gyj" path="res://#Template/[Scripts]/Trigger/KillPlayer.gd" id="23_mgc26"]
 [ext_resource type="Shader" uid="uid://3m5g3h25x0i8" path="res://[Scenes]/Peak/water_shader.gdshader" id="23_sk26j"]
 [ext_resource type="Script" uid="uid://wgnsj5toosr4" path="res://[Scenes]/Peak/water_controller.gd" id="24_vy8j2"]
+[ext_resource type="Script" uid="uid://bdbb1ogxk0fcr" path="res://#Template/[Scripts]/Trigger/JumpPredictor.gd" id="25_vy8j2"]
 [ext_resource type="PackedScene" uid="uid://b5hb8j8w782ki" path="res://#Template/Trigger.tscn" id="trigger_tscn_res"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_liba4"]
@@ -9593,6 +9594,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="BasicOBJ_Group" type="Node3D" parent="." index="0" unique_id=749701900]
 
 [node name="Player" parent="BasicOBJ_Group" index="0" unique_id=1905697100 instance=ExtResource("19_kmo8t")]
+floor_snap_length = 1.0
 firstDirection = Vector3(0, -90, 0)
 secondDirection = Vector3(0, 0, 0)
 animation = NodePath("../AnimationPlayer")
@@ -9742,587 +9744,626 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -229.31708, -0.25526303, 303.
 [node name="taper37" parent="BasicOBJ_Group/Tapper" index="37" unique_id=2036887612 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.4877, -0.25526303, 303.584)
 
-[node name="taper51" parent="BasicOBJ_Group/Tapper" index="38" unique_id=2077617613 instance=ExtResource("8_jmy4o")]
+[node name="taper39" parent="BasicOBJ_Group/Tapper" index="38" unique_id=1764325956 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.4877, -0.23137206, 312.60623)
+
+[node name="taper40" parent="BasicOBJ_Group/Tapper" index="39" unique_id=820660085 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -442.44647, 0.46067023, 312.60623)
+
+[node name="taper41" parent="BasicOBJ_Group/Tapper" index="40" unique_id=1424076720 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -442.44647, 3.0908103, 322.40195)
+
+[node name="taper42" parent="BasicOBJ_Group/Tapper" index="41" unique_id=157142346 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.19638, 5.48725, 322.40195)
+
+[node name="taper43" parent="BasicOBJ_Group/Tapper" index="42" unique_id=1509875050 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.07022, 9.689611, 338.20474)
+
+[node name="taper44" parent="BasicOBJ_Group/Tapper" index="43" unique_id=651664465 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -468.2612, 11.81777, 338.20474)
+
+[node name="taper47" parent="BasicOBJ_Group/Tapper" index="44" unique_id=978448248 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -468.2612, 16.105808, 354.6467)
+
+[node name="taper48" parent="BasicOBJ_Group/Tapper" index="45" unique_id=1402267116 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -485.15897, 21.644712, 354.6467)
+
+[node name="taper49" parent="BasicOBJ_Group/Tapper" index="46" unique_id=1135006483 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -485.15897, 44.505726, 390.31863)
+
+[node name="taper50" parent="BasicOBJ_Group/Tapper" index="47" unique_id=793758174 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -493.7116, 44.505726, 390.31863)
+
+[node name="taper54" parent="BasicOBJ_Group/Tapper" index="48" unique_id=1302638923 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -493.7116, 44.505726, 397.08405)
+
+[node name="taper55" parent="BasicOBJ_Group/Tapper" index="49" unique_id=488060856 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -502.97668, 44.505726, 397.08405)
+
+[node name="taper56" parent="BasicOBJ_Group/Tapper" index="50" unique_id=763156099 instance=ExtResource("8_jmy4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -502.97668, 44.505726, 406.67206)
+
+[node name="taper51" parent="BasicOBJ_Group/Tapper" index="51" unique_id=2077617613 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -520.36755, 44.565643, 406.19122)
 
-[node name="taper52" parent="BasicOBJ_Group/Tapper" index="39" unique_id=16640826 instance=ExtResource("8_jmy4o")]
+[node name="taper52" parent="BasicOBJ_Group/Tapper" index="52" unique_id=16640826 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -520.36755, 44.565643, 413.9484)
 
-[node name="taper53" parent="BasicOBJ_Group/Tapper" index="40" unique_id=1026934725 instance=ExtResource("8_jmy4o")]
+[node name="taper53" parent="BasicOBJ_Group/Tapper" index="53" unique_id=1026934725 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -527.39026, 44.565643, 413.9484)
 
-[node name="GuideTap67" parent="BasicOBJ_Group/Tapper" index="41" unique_id=1101053672 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap67" parent="BasicOBJ_Group/Tapper" index="54" unique_id=1101053672 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -527.721, 45.81564, 431.51456)
 
-[node name="GuideTap68" parent="BasicOBJ_Group/Tapper" index="42" unique_id=189020262 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap68" parent="BasicOBJ_Group/Tapper" index="55" unique_id=189020262 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -540.47986, 45.81564, 431.5146)
 
-[node name="GuideTap69" parent="BasicOBJ_Group/Tapper" index="43" unique_id=95548635 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap69" parent="BasicOBJ_Group/Tapper" index="56" unique_id=95548635 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -540.47986, 45.81564, 436.24008)
 
-[node name="GuideTap70" parent="BasicOBJ_Group/Tapper" index="44" unique_id=621139742 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap70" parent="BasicOBJ_Group/Tapper" index="57" unique_id=621139742 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -574.52716, 61.651, 436.24)
 
-[node name="GuideTap71" parent="BasicOBJ_Group/Tapper" index="45" unique_id=696845001 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap71" parent="BasicOBJ_Group/Tapper" index="58" unique_id=696845001 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -574.52716, 61.651, 444.41776)
 
-[node name="GuideTap72" parent="BasicOBJ_Group/Tapper" index="46" unique_id=1651400128 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap72" parent="BasicOBJ_Group/Tapper" index="59" unique_id=1651400128 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -582.70496, 61.651, 444.41776)
 
-[node name="GuideTap73" parent="BasicOBJ_Group/Tapper" index="47" unique_id=177066113 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap73" parent="BasicOBJ_Group/Tapper" index="60" unique_id=177066113 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -582.70496, 61.651, 454.02664)
 
-[node name="GuideTap74" parent="BasicOBJ_Group/Tapper" index="48" unique_id=1386743459 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap74" parent="BasicOBJ_Group/Tapper" index="61" unique_id=1386743459 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.6497, 61.651, 454.02664)
 
-[node name="GuideTap75" parent="BasicOBJ_Group/Tapper" index="49" unique_id=1758792605 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap75" parent="BasicOBJ_Group/Tapper" index="62" unique_id=1758792605 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.6497, 61.651, 469.5925)
 
-[node name="GuideTap76" parent="BasicOBJ_Group/Tapper" index="50" unique_id=707391066 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap76" parent="BasicOBJ_Group/Tapper" index="63" unique_id=707391066 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -609.3723, 61.651, 469.5925)
 
-[node name="GuideTap77" parent="BasicOBJ_Group/Tapper" index="51" unique_id=1328836266 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap77" parent="BasicOBJ_Group/Tapper" index="64" unique_id=1328836266 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -609.3723, 61.651, 485.53345)
 
-[node name="GuideTap78" parent="BasicOBJ_Group/Tapper" index="52" unique_id=1983112156 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap78" parent="BasicOBJ_Group/Tapper" index="65" unique_id=1983112156 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -618.09296, 61.651, 485.53345)
 
-[node name="GuideTap79" parent="BasicOBJ_Group/Tapper" index="53" unique_id=64023928 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap79" parent="BasicOBJ_Group/Tapper" index="66" unique_id=64023928 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -618.09296, 61.651, 494.91046)
 
-[node name="GuideTap80" parent="BasicOBJ_Group/Tapper" index="54" unique_id=323694042 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap80" parent="BasicOBJ_Group/Tapper" index="67" unique_id=323694042 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -650.5375, 61.651, 494.91046)
 
-[node name="GuideTap81" parent="BasicOBJ_Group/Tapper" index="55" unique_id=1163922205 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap81" parent="BasicOBJ_Group/Tapper" index="68" unique_id=1163922205 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -650.5375, 61.651, 503.25598)
 
-[node name="GuideTap82" parent="BasicOBJ_Group/Tapper" index="56" unique_id=1244782359 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap82" parent="BasicOBJ_Group/Tapper" index="69" unique_id=1244782359 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -659.7269, 61.651, 503.25598)
 
-[node name="GuideTap83" parent="BasicOBJ_Group/Tapper" index="57" unique_id=416469755 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap83" parent="BasicOBJ_Group/Tapper" index="70" unique_id=416469755 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -659.7269, 61.651, 511.50775)
 
-[node name="GuideTap84" parent="BasicOBJ_Group/Tapper" index="58" unique_id=1333221161 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap84" parent="BasicOBJ_Group/Tapper" index="71" unique_id=1333221161 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -668.7289, 61.651, 511.50775)
 
-[node name="GuideTap85" parent="BasicOBJ_Group/Tapper" index="59" unique_id=1576773833 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap85" parent="BasicOBJ_Group/Tapper" index="72" unique_id=1576773833 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -668.7289, 61.651, 530.3556)
 
-[node name="GuideTap86" parent="BasicOBJ_Group/Tapper" index="60" unique_id=427560036 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap86" parent="BasicOBJ_Group/Tapper" index="73" unique_id=427560036 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -676.3243, 61.651, 530.3556)
 
-[node name="GuideTap87" parent="BasicOBJ_Group/Tapper" index="61" unique_id=507105525 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap87" parent="BasicOBJ_Group/Tapper" index="74" unique_id=507105525 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -676.3243, 61.651, 537.4821)
 
-[node name="GuideTap88" parent="BasicOBJ_Group/Tapper" index="62" unique_id=1885303028 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap88" parent="BasicOBJ_Group/Tapper" index="75" unique_id=1885303028 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -692.92163, 61.651, 537.4821)
 
-[node name="GuideTap89" parent="BasicOBJ_Group/Tapper" index="63" unique_id=184853813 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap89" parent="BasicOBJ_Group/Tapper" index="76" unique_id=184853813 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -692.92163, 61.651, 553.89197)
 
-[node name="GuideTap90" parent="BasicOBJ_Group/Tapper" index="64" unique_id=1544507593 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap90" parent="BasicOBJ_Group/Tapper" index="77" unique_id=1544507593 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727.7104, 61.651, 553.89197)
 
-[node name="taper78" parent="BasicOBJ_Group/Tapper" index="65" unique_id=174263487 instance=ExtResource("8_jmy4o")]
+[node name="taper78" parent="BasicOBJ_Group/Tapper" index="78" unique_id=174263487 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727.9884, 47.213844, 597.02216)
 top_level = true
 
-[node name="taper79" parent="BasicOBJ_Group/Tapper" index="66" unique_id=1707529787 instance=ExtResource("8_jmy4o")]
+[node name="taper79" parent="BasicOBJ_Group/Tapper" index="79" unique_id=1707529787 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -739.50635, 47.213844, 597.02216)
 top_level = true
 
-[node name="taper80" parent="BasicOBJ_Group/Tapper" index="67" unique_id=1501816378 instance=ExtResource("8_jmy4o")]
+[node name="taper80" parent="BasicOBJ_Group/Tapper" index="80" unique_id=1501816378 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -739.50635, 47.213844, 605.3245)
 top_level = true
 
-[node name="taper81" parent="BasicOBJ_Group/Tapper" index="68" unique_id=153734308 instance=ExtResource("8_jmy4o")]
+[node name="taper81" parent="BasicOBJ_Group/Tapper" index="81" unique_id=153734308 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -742.7065, 47.213844, 605.3245)
 top_level = true
 
-[node name="taper82" parent="BasicOBJ_Group/Tapper" index="69" unique_id=489470773 instance=ExtResource("8_jmy4o")]
+[node name="taper82" parent="BasicOBJ_Group/Tapper" index="82" unique_id=489470773 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -742.7065, 47.213844, 617.04565)
 
-[node name="taper83" parent="BasicOBJ_Group/Tapper" index="70" unique_id=954548602 instance=ExtResource("8_jmy4o")]
+[node name="taper83" parent="BasicOBJ_Group/Tapper" index="83" unique_id=954548602 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -752.8718, 47.213844, 617.04565)
 
-[node name="taper84" parent="BasicOBJ_Group/Tapper" index="71" unique_id=1269924627 instance=ExtResource("8_jmy4o")]
+[node name="taper84" parent="BasicOBJ_Group/Tapper" index="84" unique_id=1269924627 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -752.8718, 47.213844, 622.1427)
 
-[node name="taper85" parent="BasicOBJ_Group/Tapper" index="72" unique_id=39325351 instance=ExtResource("8_jmy4o")]
+[node name="taper85" parent="BasicOBJ_Group/Tapper" index="85" unique_id=39325351 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -762.2833, 47.219154, 622.13446)
 
-[node name="taper86" parent="BasicOBJ_Group/Tapper" index="73" unique_id=874995534 instance=ExtResource("8_jmy4o")]
+[node name="taper86" parent="BasicOBJ_Group/Tapper" index="86" unique_id=874995534 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -762.2833, 47.219154, 635.2776)
 
-[node name="taper87" parent="BasicOBJ_Group/Tapper" index="74" unique_id=375043292 instance=ExtResource("8_jmy4o")]
+[node name="taper87" parent="BasicOBJ_Group/Tapper" index="87" unique_id=375043292 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -767.6907, 47.219154, 635.2776)
 
-[node name="taper92" parent="BasicOBJ_Group/Tapper" index="75" unique_id=1035937406 instance=ExtResource("8_jmy4o")]
+[node name="taper92" parent="BasicOBJ_Group/Tapper" index="88" unique_id=1035937406 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -799.5503, 55.67843, 668.47076)
 
-[node name="taper93" parent="BasicOBJ_Group/Tapper" index="76" unique_id=547300033 instance=ExtResource("8_jmy4o")]
+[node name="taper93" parent="BasicOBJ_Group/Tapper" index="89" unique_id=547300033 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -799.5503, 55.67843, 675.88025)
 
-[node name="taper94" parent="BasicOBJ_Group/Tapper" index="77" unique_id=1767532724 instance=ExtResource("8_jmy4o")]
+[node name="taper94" parent="BasicOBJ_Group/Tapper" index="90" unique_id=1767532724 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -802.1796, 55.67843, 675.88025)
 
-[node name="taper95" parent="BasicOBJ_Group/Tapper" index="78" unique_id=1283016495 instance=ExtResource("8_jmy4o")]
+[node name="taper95" parent="BasicOBJ_Group/Tapper" index="91" unique_id=1283016495 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -802.1796, 55.67843, 681.4451)
 
-[node name="taper96" parent="BasicOBJ_Group/Tapper" index="79" unique_id=1743178421 instance=ExtResource("8_jmy4o")]
+[node name="taper96" parent="BasicOBJ_Group/Tapper" index="92" unique_id=1743178421 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -804.4056, 55.67843, 681.4451)
 
-[node name="GuideTap91" parent="BasicOBJ_Group/Tapper" index="80" unique_id=1319100436 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap91" parent="BasicOBJ_Group/Tapper" index="93" unique_id=1319100436 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -802.66144, 86.57668, 704.63293)
 
-[node name="GuideTap92" parent="BasicOBJ_Group/Tapper" index="81" unique_id=596020966 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap92" parent="BasicOBJ_Group/Tapper" index="94" unique_id=596020966 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -814.1041, 86.57668, 704.63293)
 
-[node name="GuideTap93" parent="BasicOBJ_Group/Tapper" index="82" unique_id=1613668870 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap93" parent="BasicOBJ_Group/Tapper" index="95" unique_id=1613668870 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -814.1041, 86.57668, 711.5584)
 
-[node name="GuideTap94" parent="BasicOBJ_Group/Tapper" index="83" unique_id=1827488820 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap94" parent="BasicOBJ_Group/Tapper" index="96" unique_id=1827488820 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -818.7418, 86.57668, 711.5584)
 
-[node name="GuideTap95" parent="BasicOBJ_Group/Tapper" index="84" unique_id=1494657925 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap95" parent="BasicOBJ_Group/Tapper" index="97" unique_id=1494657925 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -818.7418, 86.57668, 723.0573)
 
-[node name="GuideTap96" parent="BasicOBJ_Group/Tapper" index="85" unique_id=1574830666 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap96" parent="BasicOBJ_Group/Tapper" index="98" unique_id=1574830666 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.74786, 86.57668, 723.0573)
 
-[node name="GuideTap97" parent="BasicOBJ_Group/Tapper" index="86" unique_id=817716102 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap97" parent="BasicOBJ_Group/Tapper" index="99" unique_id=817716102 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.74786, 86.57668, 728.25854)
 
-[node name="GuideTap98" parent="BasicOBJ_Group/Tapper" index="87" unique_id=1476257247 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap98" parent="BasicOBJ_Group/Tapper" index="100" unique_id=1476257247 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.3751, 86.57668, 728.25854)
 
-[node name="GuideTap99" parent="BasicOBJ_Group/Tapper" index="88" unique_id=2004544136 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap99" parent="BasicOBJ_Group/Tapper" index="101" unique_id=2004544136 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.3751, 86.57668, 737.03735)
 
-[node name="GuideTap100" parent="BasicOBJ_Group/Tapper" index="89" unique_id=749306584 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap100" parent="BasicOBJ_Group/Tapper" index="102" unique_id=749306584 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -832.3524, 86.57668, 737.03735)
 
-[node name="GuideTap101" parent="BasicOBJ_Group/Tapper" index="90" unique_id=257331558 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap101" parent="BasicOBJ_Group/Tapper" index="103" unique_id=257331558 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -832.3524, 86.57668, 742.1691)
 
-[node name="GuideTap102" parent="BasicOBJ_Group/Tapper" index="91" unique_id=944134335 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap102" parent="BasicOBJ_Group/Tapper" index="104" unique_id=944134335 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -854.5641, 86.57668, 742.1691)
 
-[node name="GuideTap103" parent="BasicOBJ_Group/Tapper" index="92" unique_id=1077187698 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap103" parent="BasicOBJ_Group/Tapper" index="105" unique_id=1077187698 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -854.5641, 86.57668, 753.0149)
 
-[node name="GuideTap104" parent="BasicOBJ_Group/Tapper" index="93" unique_id=1935279591 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap104" parent="BasicOBJ_Group/Tapper" index="106" unique_id=1935279591 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -857.62384, 86.57668, 753.0149)
 
-[node name="GuideTap105" parent="BasicOBJ_Group/Tapper" index="94" unique_id=930598417 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap105" parent="BasicOBJ_Group/Tapper" index="107" unique_id=930598417 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -857.62384, 86.57668, 762.56305)
 
-[node name="GuideTap106" parent="BasicOBJ_Group/Tapper" index="95" unique_id=1930615099 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap106" parent="BasicOBJ_Group/Tapper" index="108" unique_id=1930615099 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -868.7367, 86.57668, 762.56305)
 
-[node name="GuideTap107" parent="BasicOBJ_Group/Tapper" index="96" unique_id=903559659 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap107" parent="BasicOBJ_Group/Tapper" index="109" unique_id=903559659 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -868.7367, 86.57668, 768.26276)
 
-[node name="GuideTap108" parent="BasicOBJ_Group/Tapper" index="97" unique_id=646066543 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap108" parent="BasicOBJ_Group/Tapper" index="110" unique_id=646066543 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -874.00446, 86.57668, 768.26276)
 
-[node name="GuideTap109" parent="BasicOBJ_Group/Tapper" index="98" unique_id=2107455491 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap109" parent="BasicOBJ_Group/Tapper" index="111" unique_id=2107455491 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -874.00446, 86.57668, 789.5429)
 
-[node name="GuideTap110" parent="BasicOBJ_Group/Tapper" index="99" unique_id=2111219380 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap110" parent="BasicOBJ_Group/Tapper" index="112" unique_id=2111219380 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -884.95874, 86.57668, 789.5429)
 
-[node name="taper117" parent="BasicOBJ_Group/Tapper" index="100" unique_id=387035527 instance=ExtResource("8_jmy4o")]
+[node name="taper117" parent="BasicOBJ_Group/Tapper" index="113" unique_id=387035527 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -885.5827, 86.062035, 801.4138)
 
-[node name="taper118" parent="BasicOBJ_Group/Tapper" index="101" unique_id=2091445605 instance=ExtResource("8_jmy4o")]
+[node name="taper118" parent="BasicOBJ_Group/Tapper" index="114" unique_id=2091445605 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -897.4327, 86.062035, 801.4138)
 
-[node name="taper119" parent="BasicOBJ_Group/Tapper" index="102" unique_id=1318089273 instance=ExtResource("8_jmy4o")]
+[node name="taper119" parent="BasicOBJ_Group/Tapper" index="115" unique_id=1318089273 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -897.4327, 86.062035, 809.9644)
 
-[node name="taper120" parent="BasicOBJ_Group/Tapper" index="103" unique_id=1993785659 instance=ExtResource("8_jmy4o")]
+[node name="taper120" parent="BasicOBJ_Group/Tapper" index="116" unique_id=1993785659 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -899.78015, 86.062035, 809.9644)
 
-[node name="taper121" parent="BasicOBJ_Group/Tapper" index="104" unique_id=1228945624 instance=ExtResource("8_jmy4o")]
+[node name="taper121" parent="BasicOBJ_Group/Tapper" index="117" unique_id=1228945624 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -899.78015, 86.062035, 821.26385)
 
-[node name="taper122" parent="BasicOBJ_Group/Tapper" index="105" unique_id=518119035 instance=ExtResource("8_jmy4o")]
+[node name="taper122" parent="BasicOBJ_Group/Tapper" index="118" unique_id=518119035 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -908.0072, 86.062035, 821.26385)
 
-[node name="taper123" parent="BasicOBJ_Group/Tapper" index="106" unique_id=739918465 instance=ExtResource("8_jmy4o")]
+[node name="taper123" parent="BasicOBJ_Group/Tapper" index="119" unique_id=739918465 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -908.0072, 86.062035, 824.8104)
 
-[node name="taper124" parent="BasicOBJ_Group/Tapper" index="107" unique_id=938108543 instance=ExtResource("8_jmy4o")]
+[node name="taper124" parent="BasicOBJ_Group/Tapper" index="120" unique_id=938108543 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -919.5643, 86.062035, 824.8104)
 
-[node name="taper125" parent="BasicOBJ_Group/Tapper" index="108" unique_id=1685074689 instance=ExtResource("8_jmy4o")]
+[node name="taper125" parent="BasicOBJ_Group/Tapper" index="121" unique_id=1685074689 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -919.5643, 86.062035, 832.6276)
 
-[node name="taper126" parent="BasicOBJ_Group/Tapper" index="109" unique_id=726175978 instance=ExtResource("8_jmy4o")]
+[node name="taper126" parent="BasicOBJ_Group/Tapper" index="122" unique_id=726175978 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -922.43726, 86.062035, 832.6276)
 
-[node name="taper127" parent="BasicOBJ_Group/Tapper" index="110" unique_id=1782140789 instance=ExtResource("8_jmy4o")]
+[node name="taper127" parent="BasicOBJ_Group/Tapper" index="123" unique_id=1782140789 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -922.43726, 101.01518, 855.4759)
 
-[node name="taper128" parent="BasicOBJ_Group/Tapper" index="111" unique_id=1869468219 instance=ExtResource("8_jmy4o")]
+[node name="taper128" parent="BasicOBJ_Group/Tapper" index="124" unique_id=1869468219 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -933.6027, 100.97498, 855.4759)
 
-[node name="taper129" parent="BasicOBJ_Group/Tapper" index="112" unique_id=1507995660 instance=ExtResource("8_jmy4o")]
+[node name="taper129" parent="BasicOBJ_Group/Tapper" index="125" unique_id=1507995660 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -933.6027, 100.92265, 864.66547)
 
-[node name="taper130" parent="BasicOBJ_Group/Tapper" index="113" unique_id=666804501 instance=ExtResource("8_jmy4o")]
+[node name="taper130" parent="BasicOBJ_Group/Tapper" index="126" unique_id=666804501 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -936.73914, 100.92265, 864.66547)
 
-[node name="taper131" parent="BasicOBJ_Group/Tapper" index="114" unique_id=561437960 instance=ExtResource("8_jmy4o")]
+[node name="taper131" parent="BasicOBJ_Group/Tapper" index="127" unique_id=561437960 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -936.73914, 100.92265, 869.5582)
 
-[node name="taper132" parent="BasicOBJ_Group/Tapper" index="115" unique_id=1664554739 instance=ExtResource("8_jmy4o")]
+[node name="taper132" parent="BasicOBJ_Group/Tapper" index="128" unique_id=1664554739 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -942.4787, 100.92265, 869.5582)
 
-[node name="taper133" parent="BasicOBJ_Group/Tapper" index="116" unique_id=1013118690 instance=ExtResource("8_jmy4o")]
+[node name="taper133" parent="BasicOBJ_Group/Tapper" index="129" unique_id=1013118690 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -942.4787, 100.92265, 880.73254)
 
-[node name="taper134" parent="BasicOBJ_Group/Tapper" index="117" unique_id=1740598633 instance=ExtResource("8_jmy4o")]
+[node name="taper134" parent="BasicOBJ_Group/Tapper" index="130" unique_id=1740598633 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -951.02466, 100.92265, 880.73254)
 
-[node name="taper135" parent="BasicOBJ_Group/Tapper" index="118" unique_id=304080565 instance=ExtResource("8_jmy4o")]
+[node name="taper135" parent="BasicOBJ_Group/Tapper" index="131" unique_id=304080565 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -951.02466, 100.92265, 883.5024)
 
-[node name="taper136" parent="BasicOBJ_Group/Tapper" index="119" unique_id=2119572070 instance=ExtResource("8_jmy4o")]
+[node name="taper136" parent="BasicOBJ_Group/Tapper" index="132" unique_id=2119572070 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -956.6981, 100.92265, 883.5024)
 
-[node name="taper137" parent="BasicOBJ_Group/Tapper" index="120" unique_id=902722808 instance=ExtResource("8_jmy4o")]
+[node name="taper137" parent="BasicOBJ_Group/Tapper" index="133" unique_id=902722808 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -956.6981, 100.92265, 888.83813)
 
-[node name="taper138" parent="BasicOBJ_Group/Tapper" index="121" unique_id=1223553245 instance=ExtResource("8_jmy4o")]
+[node name="taper138" parent="BasicOBJ_Group/Tapper" index="134" unique_id=1223553245 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -979.42194, 125.321625, 888.83813)
 
-[node name="taper139" parent="BasicOBJ_Group/Tapper" index="122" unique_id=61357789 instance=ExtResource("8_jmy4o")]
+[node name="taper139" parent="BasicOBJ_Group/Tapper" index="135" unique_id=61357789 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -979.42194, 125.321625, 900.8692)
 
-[node name="taper140" parent="BasicOBJ_Group/Tapper" index="123" unique_id=422552187 instance=ExtResource("8_jmy4o")]
+[node name="taper140" parent="BasicOBJ_Group/Tapper" index="136" unique_id=422552187 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -985.68317, 125.321625, 900.8692)
 
-[node name="taper141" parent="BasicOBJ_Group/Tapper" index="124" unique_id=1209464717 instance=ExtResource("8_jmy4o")]
+[node name="taper141" parent="BasicOBJ_Group/Tapper" index="137" unique_id=1209464717 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -985.68317, 125.321625, 905.7456)
 
-[node name="taper142" parent="BasicOBJ_Group/Tapper" index="125" unique_id=1237905209 instance=ExtResource("8_jmy4o")]
+[node name="taper142" parent="BasicOBJ_Group/Tapper" index="138" unique_id=1237905209 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997.64185, 125.321625, 905.7456)
 
-[node name="taper143" parent="BasicOBJ_Group/Tapper" index="126" unique_id=420740145 instance=ExtResource("8_jmy4o")]
+[node name="taper143" parent="BasicOBJ_Group/Tapper" index="139" unique_id=420740145 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997.64185, 125.321625, 911.20245)
 
-[node name="taper144" parent="BasicOBJ_Group/Tapper" index="127" unique_id=1645620516 instance=ExtResource("8_jmy4o")]
+[node name="taper144" parent="BasicOBJ_Group/Tapper" index="140" unique_id=1645620516 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1005.24677, 125.321625, 911.20245)
 
-[node name="taper145" parent="BasicOBJ_Group/Tapper" index="128" unique_id=1950510077 instance=ExtResource("8_jmy4o")]
+[node name="taper145" parent="BasicOBJ_Group/Tapper" index="141" unique_id=1950510077 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1005.24677, 125.321625, 914.2212)
 
-[node name="taper146" parent="BasicOBJ_Group/Tapper" index="129" unique_id=150149227 instance=ExtResource("8_jmy4o")]
+[node name="taper146" parent="BasicOBJ_Group/Tapper" index="142" unique_id=150149227 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1011.2842, 125.321625, 914.2212)
 
-[node name="taper147" parent="BasicOBJ_Group/Tapper" index="130" unique_id=1455505975 instance=ExtResource("8_jmy4o")]
+[node name="taper147" parent="BasicOBJ_Group/Tapper" index="143" unique_id=1455505975 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1011.2842, 125.321625, 919.09753)
 
-[node name="taper148" parent="BasicOBJ_Group/Tapper" index="131" unique_id=1809639716 instance=ExtResource("8_jmy4o")]
+[node name="taper148" parent="BasicOBJ_Group/Tapper" index="144" unique_id=1809639716 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1016.56683, 125.321625, 919.09753)
 
-[node name="taper149" parent="BasicOBJ_Group/Tapper" index="132" unique_id=747860852 instance=ExtResource("8_jmy4o")]
+[node name="taper149" parent="BasicOBJ_Group/Tapper" index="145" unique_id=747860852 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1016.56683, 125.321625, 941.43475)
 
-[node name="taper150" parent="BasicOBJ_Group/Tapper" index="133" unique_id=1768886275 instance=ExtResource("8_jmy4o")]
+[node name="taper150" parent="BasicOBJ_Group/Tapper" index="146" unique_id=1768886275 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1028.4973, 125.321625, 941.43475)
 
-[node name="taper151" parent="BasicOBJ_Group/Tapper" index="134" unique_id=2043746056 instance=ExtResource("8_jmy4o")]
+[node name="taper151" parent="BasicOBJ_Group/Tapper" index="147" unique_id=2043746056 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1028.4973, 125.321625, 944.1047)
 
-[node name="taper152" parent="BasicOBJ_Group/Tapper" index="135" unique_id=1511915665 instance=ExtResource("8_jmy4o")]
+[node name="taper152" parent="BasicOBJ_Group/Tapper" index="148" unique_id=1511915665 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1037.754, 125.321625, 944.1047)
 
-[node name="taper153" parent="BasicOBJ_Group/Tapper" index="136" unique_id=155125800 instance=ExtResource("8_jmy4o")]
+[node name="taper153" parent="BasicOBJ_Group/Tapper" index="149" unique_id=155125800 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1037.754, 125.321625, 955.3497)
 
-[node name="taper154" parent="BasicOBJ_Group/Tapper" index="137" unique_id=1611694774 instance=ExtResource("8_jmy4o")]
+[node name="taper154" parent="BasicOBJ_Group/Tapper" index="150" unique_id=1611694774 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1041.7056, 125.321625, 955.3497)
 
-[node name="taper155" parent="BasicOBJ_Group/Tapper" index="138" unique_id=1205964985 instance=ExtResource("8_jmy4o")]
+[node name="taper155" parent="BasicOBJ_Group/Tapper" index="151" unique_id=1205964985 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1041.7056, 125.321625, 961.96027)
 
-[node name="taper156" parent="BasicOBJ_Group/Tapper" index="139" unique_id=392720869 instance=ExtResource("8_jmy4o")]
+[node name="taper156" parent="BasicOBJ_Group/Tapper" index="152" unique_id=392720869 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1053.013, 125.321625, 961.96027)
 
-[node name="taper157" parent="BasicOBJ_Group/Tapper" index="140" unique_id=864974406 instance=ExtResource("8_jmy4o")]
+[node name="taper157" parent="BasicOBJ_Group/Tapper" index="153" unique_id=864974406 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1053.013, 125.321625, 973.52826)
 
-[node name="taper158" parent="BasicOBJ_Group/Tapper" index="141" unique_id=951180341 instance=ExtResource("8_jmy4o")]
+[node name="taper158" parent="BasicOBJ_Group/Tapper" index="154" unique_id=951180341 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1064.9055, 125.321625, 973.52826)
 
-[node name="taper159" parent="BasicOBJ_Group/Tapper" index="142" unique_id=935563379 instance=ExtResource("8_jmy4o")]
+[node name="taper159" parent="BasicOBJ_Group/Tapper" index="155" unique_id=935563379 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1064.9055, 125.321625, 984.3428)
 
-[node name="GuideTap" parent="BasicOBJ_Group/Tapper" index="143" unique_id=393473291 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap" parent="BasicOBJ_Group/Tapper" index="156" unique_id=393473291 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1099.8301, 115.83043, 984.2608)
 
-[node name="taper160" parent="BasicOBJ_Group/Tapper" index="144" unique_id=1045246530 instance=ExtResource("8_jmy4o")]
+[node name="taper160" parent="BasicOBJ_Group/Tapper" index="157" unique_id=1045246530 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1101.5521, 115.84635, 984.3428)
 
-[node name="taper161" parent="BasicOBJ_Group/Tapper" index="145" unique_id=1277870209 instance=ExtResource("8_jmy4o")]
+[node name="taper161" parent="BasicOBJ_Group/Tapper" index="158" unique_id=1277870209 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1101.5521, 115.84635, 989.2981)
 
-[node name="GuideTap2" parent="BasicOBJ_Group/Tapper" index="146" unique_id=558531408 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap2" parent="BasicOBJ_Group/Tapper" index="159" unique_id=558531408 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1099.8301, 115.83043, 990.1002)
 
-[node name="taper162" parent="BasicOBJ_Group/Tapper" index="147" unique_id=1006373655 instance=ExtResource("8_jmy4o")]
+[node name="taper162" parent="BasicOBJ_Group/Tapper" index="160" unique_id=1006373655 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1105.2205, 115.84635, 989.2981)
 
-[node name="GuideTap4" parent="BasicOBJ_Group/Tapper" index="148" unique_id=879307936 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap4" parent="BasicOBJ_Group/Tapper" index="161" unique_id=879307936 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1105.4806, 115.83043, 1024.3086)
 
-[node name="taper163" parent="BasicOBJ_Group/Tapper" index="149" unique_id=88757964 instance=ExtResource("8_jmy4o")]
+[node name="taper163" parent="BasicOBJ_Group/Tapper" index="162" unique_id=88757964 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1105.2205, 115.84635, 1024.579)
 
-[node name="taper164" parent="BasicOBJ_Group/Tapper" index="150" unique_id=1598839892 instance=ExtResource("8_jmy4o")]
+[node name="taper164" parent="BasicOBJ_Group/Tapper" index="163" unique_id=1598839892 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1110.0217, 115.84635, 1024.579)
 
-[node name="GuideTap3" parent="BasicOBJ_Group/Tapper" index="151" unique_id=1135938235 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap3" parent="BasicOBJ_Group/Tapper" index="164" unique_id=1135938235 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1110.0378, 115.83043, 1024.3086)
 
-[node name="GuideTap5" parent="BasicOBJ_Group/Tapper" index="152" unique_id=99986210 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap5" parent="BasicOBJ_Group/Tapper" index="165" unique_id=99986210 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1110.0378, 115.83043, 1024.3086)
 
-[node name="GuideTap6" parent="BasicOBJ_Group/Tapper" index="153" unique_id=1975718714 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap6" parent="BasicOBJ_Group/Tapper" index="166" unique_id=1975718714 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1110.0378, 115.83043, 1030.4236)
 
-[node name="GuideTap7" parent="BasicOBJ_Group/Tapper" index="154" unique_id=196521661 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap7" parent="BasicOBJ_Group/Tapper" index="167" unique_id=196521661 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1115.749, 115.83043, 1030.4236)
 
-[node name="taper167" parent="BasicOBJ_Group/Tapper" index="155" unique_id=341084367 instance=ExtResource("8_jmy4o")]
+[node name="taper167" parent="BasicOBJ_Group/Tapper" index="168" unique_id=341084367 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1115.4955, 115.84635, 1041.5532)
 
-[node name="GuideTap8" parent="BasicOBJ_Group/Tapper" index="156" unique_id=1627624865 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap8" parent="BasicOBJ_Group/Tapper" index="169" unique_id=1627624865 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1115.749, 115.83043, 1041.8262)
 
-[node name="taper168" parent="BasicOBJ_Group/Tapper" index="157" unique_id=1928526408 instance=ExtResource("8_jmy4o")]
+[node name="taper168" parent="BasicOBJ_Group/Tapper" index="170" unique_id=1928526408 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1121.5239, 115.84635, 1041.5532)
 
-[node name="GuideTap9" parent="BasicOBJ_Group/Tapper" index="158" unique_id=1853379917 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap9" parent="BasicOBJ_Group/Tapper" index="171" unique_id=1853379917 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1121.6215, 115.83043, 1041.8262)
 
-[node name="GuideTap10" parent="BasicOBJ_Group/Tapper" index="159" unique_id=1701585000 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap10" parent="BasicOBJ_Group/Tapper" index="172" unique_id=1701585000 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1121.6215, 115.83043, 1047.2238)
 
-[node name="taper169" parent="BasicOBJ_Group/Tapper" index="160" unique_id=39876605 instance=ExtResource("8_jmy4o")]
+[node name="taper169" parent="BasicOBJ_Group/Tapper" index="173" unique_id=39876605 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1121.5239, 115.84635, 1047.3613)
 
-[node name="taper170" parent="BasicOBJ_Group/Tapper" index="161" unique_id=564065236 instance=ExtResource("8_jmy4o")]
+[node name="taper170" parent="BasicOBJ_Group/Tapper" index="174" unique_id=564065236 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1132.6974, 115.84635, 1047.3613)
 
-[node name="GuideTap11" parent="BasicOBJ_Group/Tapper" index="162" unique_id=1156106832 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap11" parent="BasicOBJ_Group/Tapper" index="175" unique_id=1156106832 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1132.7256, 115.83043, 1047.2238)
 
-[node name="GuideTap12" parent="BasicOBJ_Group/Tapper" index="163" unique_id=1010364032 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap12" parent="BasicOBJ_Group/Tapper" index="176" unique_id=1010364032 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1132.7256, 115.83043, 1052.8921)
 
-[node name="taper171" parent="BasicOBJ_Group/Tapper" index="164" unique_id=455910316 instance=ExtResource("8_jmy4o")]
+[node name="taper171" parent="BasicOBJ_Group/Tapper" index="177" unique_id=455910316 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1132.697, 115.396, 1052.881)
 
-[node name="GuideTap13" parent="BasicOBJ_Group/Tapper" index="165" unique_id=1689747166 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap13" parent="BasicOBJ_Group/Tapper" index="178" unique_id=1689747166 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1166.1267, 135.83867, 1052.8921)
 
-[node name="taper172" parent="BasicOBJ_Group/Tapper" index="166" unique_id=284369592 instance=ExtResource("8_jmy4o")]
+[node name="taper172" parent="BasicOBJ_Group/Tapper" index="179" unique_id=284369592 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1166.2598, 135.7955, 1052.8806)
 
-[node name="GuideTap14" parent="BasicOBJ_Group/Tapper" index="167" unique_id=119577718 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap14" parent="BasicOBJ_Group/Tapper" index="180" unique_id=119577718 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1166.1267, 135.83867, 1058.6996)
 
-[node name="taper45" parent="BasicOBJ_Group/Tapper" index="168" unique_id=1283867313 instance=ExtResource("8_jmy4o")]
+[node name="taper45" parent="BasicOBJ_Group/Tapper" index="181" unique_id=1283867313 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.28571415, -1166.7081, 136.32191, 1063.2982)
 
-[node name="taper46" parent="BasicOBJ_Group/Tapper" index="169" unique_id=1982245208 instance=ExtResource("8_jmy4o")]
+[node name="taper46" parent="BasicOBJ_Group/Tapper" index="182" unique_id=1982245208 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.28571415, -1167.5568, 136.32191, 1063.2982)
 
-[node name="GuideTap15" parent="BasicOBJ_Group/Tapper" index="170" unique_id=1017447149 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap15" parent="BasicOBJ_Group/Tapper" index="183" unique_id=1017447149 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1172.2467, 135.83867, 1058.6996)
 
-[node name="GuideTap16" parent="BasicOBJ_Group/Tapper" index="171" unique_id=338181744 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap16" parent="BasicOBJ_Group/Tapper" index="184" unique_id=338181744 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1172.2467, 135.83867, 1091.5698)
 
-[node name="GuideTap17" parent="BasicOBJ_Group/Tapper" index="172" unique_id=1029146320 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap17" parent="BasicOBJ_Group/Tapper" index="185" unique_id=1029146320 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1177.8533, 135.83867, 1091.5698)
 
-[node name="GuideTap18" parent="BasicOBJ_Group/Tapper" index="173" unique_id=236979014 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap18" parent="BasicOBJ_Group/Tapper" index="186" unique_id=236979014 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1177.8533, 135.83867, 1098.21)
 
-[node name="GuideTap19" parent="BasicOBJ_Group/Tapper" index="174" unique_id=1535196762 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap19" parent="BasicOBJ_Group/Tapper" index="187" unique_id=1535196762 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1223.0878, 135.83867, 1098.21)
 
-[node name="GuideTap20" parent="BasicOBJ_Group/Tapper" index="175" unique_id=321565596 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap20" parent="BasicOBJ_Group/Tapper" index="188" unique_id=321565596 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1223.0878, 135.83867, 1103.7987)
 
-[node name="GuideTap21" parent="BasicOBJ_Group/Tapper" index="176" unique_id=582672661 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap21" parent="BasicOBJ_Group/Tapper" index="189" unique_id=582672661 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1228.8524, 135.83867, 1103.7987)
 
-[node name="GuideTap22" parent="BasicOBJ_Group/Tapper" index="177" unique_id=138780288 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap22" parent="BasicOBJ_Group/Tapper" index="190" unique_id=138780288 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1228.8524, 135.83867, 1115.2423)
 
-[node name="GuideTap23" parent="BasicOBJ_Group/Tapper" index="178" unique_id=973254941 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap23" parent="BasicOBJ_Group/Tapper" index="191" unique_id=973254941 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1233.8551, 135.83867, 1115.2379)
 
-[node name="GuideTap24" parent="BasicOBJ_Group/Tapper" index="179" unique_id=1558380600 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap24" parent="BasicOBJ_Group/Tapper" index="192" unique_id=1558380600 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1233.8331, 135.83867, 1121.547)
 
-[node name="GuideTap25" parent="BasicOBJ_Group/Tapper" index="180" unique_id=333445524 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap25" parent="BasicOBJ_Group/Tapper" index="193" unique_id=333445524 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1245.6271, 135.83867, 1121.547)
 
-[node name="GuideTap26" parent="BasicOBJ_Group/Tapper" index="181" unique_id=1206741553 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap26" parent="BasicOBJ_Group/Tapper" index="194" unique_id=1206741553 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1245.6271, 135.83867, 1144.0363)
 
-[node name="GuideTap27" parent="BasicOBJ_Group/Tapper" index="182" unique_id=480871205 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap27" parent="BasicOBJ_Group/Tapper" index="195" unique_id=480871205 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1255.9586, 135.83867, 1144.0363)
 
-[node name="GuideTap28" parent="BasicOBJ_Group/Tapper" index="183" unique_id=340164814 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap28" parent="BasicOBJ_Group/Tapper" index="196" unique_id=340164814 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1256.3583, 135.83867, 1155.1282)
 
-[node name="GuideTap29" parent="BasicOBJ_Group/Tapper" index="184" unique_id=1530452669 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap29" parent="BasicOBJ_Group/Tapper" index="197" unique_id=1530452669 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1290.3179, 135.83867, 1155.269)
 
-[node name="GuideTap30" parent="BasicOBJ_Group/Tapper" index="185" unique_id=1710890209 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap30" parent="BasicOBJ_Group/Tapper" index="198" unique_id=1710890209 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1290.3179, 135.83867, 1160.3214)
 
-[node name="GuideTap31" parent="BasicOBJ_Group/Tapper" index="186" unique_id=577737235 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap31" parent="BasicOBJ_Group/Tapper" index="199" unique_id=577737235 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1296.6389, 135.83867, 1160.3214)
 
-[node name="GuideTap32" parent="BasicOBJ_Group/Tapper" index="187" unique_id=948993440 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap32" parent="BasicOBJ_Group/Tapper" index="200" unique_id=948993440 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1296.6389, 135.83867, 1194.1129)
 
-[node name="GuideTap33" parent="BasicOBJ_Group/Tapper" index="188" unique_id=2081595078 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap33" parent="BasicOBJ_Group/Tapper" index="201" unique_id=2081595078 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1302.5065, 135.83867, 1194.1129)
 
-[node name="GuideTap34" parent="BasicOBJ_Group/Tapper" index="189" unique_id=257940323 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap34" parent="BasicOBJ_Group/Tapper" index="202" unique_id=257940323 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1302.5065, 135.83867, 1199.8634)
 
-[node name="GuideTap35" parent="BasicOBJ_Group/Tapper" index="190" unique_id=983928124 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap35" parent="BasicOBJ_Group/Tapper" index="203" unique_id=983928124 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1307.8281, 135.83867, 1199.8634)
 
-[node name="GuideTap36" parent="BasicOBJ_Group/Tapper" index="191" unique_id=602532767 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap36" parent="BasicOBJ_Group/Tapper" index="204" unique_id=602532767 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1307.8281, 135.83867, 1211.698)
 
-[node name="GuideTap37" parent="BasicOBJ_Group/Tapper" index="192" unique_id=965176639 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap37" parent="BasicOBJ_Group/Tapper" index="205" unique_id=965176639 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1313.3485, 135.83867, 1211.698)
 
-[node name="GuideTap38" parent="BasicOBJ_Group/Tapper" index="193" unique_id=817330686 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap38" parent="BasicOBJ_Group/Tapper" index="206" unique_id=817330686 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1313.3485, 135.83867, 1217.3627)
 
-[node name="GuideTap39" parent="BasicOBJ_Group/Tapper" index="194" unique_id=2111473296 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap39" parent="BasicOBJ_Group/Tapper" index="207" unique_id=2111473296 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1324.7863, 135.83867, 1217.3627)
 
-[node name="GuideTap40" parent="BasicOBJ_Group/Tapper" index="195" unique_id=1081951797 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap40" parent="BasicOBJ_Group/Tapper" index="208" unique_id=1081951797 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1324.7863, 135.83867, 1222.5222)
 
-[node name="GuideTap41" parent="BasicOBJ_Group/Tapper" index="196" unique_id=1721033295 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap41" parent="BasicOBJ_Group/Tapper" index="209" unique_id=1721033295 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1365.062, 135.83867, 1222.5819)
 
-[node name="GuideTap42" parent="BasicOBJ_Group/Tapper" index="197" unique_id=686237210 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap42" parent="BasicOBJ_Group/Tapper" index="210" unique_id=686237210 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1365.062, 140.86314, 1267.6472)
 
-[node name="GuideTap43" parent="BasicOBJ_Group/Tapper" index="198" unique_id=1922539045 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap43" parent="BasicOBJ_Group/Tapper" index="211" unique_id=1922539045 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1415.8575, 146.8156, 1267.6472)
 
-[node name="GuideTap44" parent="BasicOBJ_Group/Tapper" index="199" unique_id=1565044038 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap44" parent="BasicOBJ_Group/Tapper" index="212" unique_id=1565044038 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1415.8575, 146.8156, 1272.446)
 
-[node name="GuideTap45" parent="BasicOBJ_Group/Tapper" index="200" unique_id=417951891 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap45" parent="BasicOBJ_Group/Tapper" index="213" unique_id=417951891 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1422.2078, 146.8156, 1272.446)
 
-[node name="GuideTap46" parent="BasicOBJ_Group/Tapper" index="201" unique_id=1066092270 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap46" parent="BasicOBJ_Group/Tapper" index="214" unique_id=1066092270 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1422.2078, 146.8156, 1284.2085)
 
-[node name="GuideTap47" parent="BasicOBJ_Group/Tapper" index="202" unique_id=956543811 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap47" parent="BasicOBJ_Group/Tapper" index="215" unique_id=956543811 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1427.2952, 146.8156, 1284.2085)
 
-[node name="GuideTap48" parent="BasicOBJ_Group/Tapper" index="203" unique_id=420533493 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap48" parent="BasicOBJ_Group/Tapper" index="216" unique_id=420533493 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1427.2952, 146.8156, 1289.7289)
 
-[node name="GuideTap49" parent="BasicOBJ_Group/Tapper" index="204" unique_id=1173476714 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap49" parent="BasicOBJ_Group/Tapper" index="217" unique_id=1173476714 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1439.0575, 146.8156, 1289.7289)
 
-[node name="GuideTap50" parent="BasicOBJ_Group/Tapper" index="205" unique_id=1151778675 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap50" parent="BasicOBJ_Group/Tapper" index="218" unique_id=1151778675 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1439.057, 150.786, 1334.8658)
 
-[node name="GuideTap51" parent="BasicOBJ_Group/Tapper" index="206" unique_id=1795494802 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap51" parent="BasicOBJ_Group/Tapper" index="219" unique_id=1795494802 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1465.0714, 150.786, 1335.0101)
 
-[node name="GuideTap52" parent="BasicOBJ_Group/Tapper" index="207" unique_id=1345482900 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap52" parent="BasicOBJ_Group/Tapper" index="220" unique_id=1345482900 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1465.0714, 150.786, 1357.1638)
 
-[node name="GuideTap53" parent="BasicOBJ_Group/Tapper" index="208" unique_id=1655466145 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap53" parent="BasicOBJ_Group/Tapper" index="221" unique_id=1655466145 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1487.3695, 150.786, 1357.1638)
 
-[node name="GuideTap54" parent="BasicOBJ_Group/Tapper" index="209" unique_id=161384664 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap54" parent="BasicOBJ_Group/Tapper" index="222" unique_id=161384664 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1487.3695, 150.786, 1380.6526)
 
-[node name="GuideTap55" parent="BasicOBJ_Group/Tapper" index="210" unique_id=1784730024 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap55" parent="BasicOBJ_Group/Tapper" index="223" unique_id=1784730024 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1511.8685, 150.786, 1380.6526)
 
-[node name="GuideTap56" parent="BasicOBJ_Group/Tapper" index="211" unique_id=367995004 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap56" parent="BasicOBJ_Group/Tapper" index="224" unique_id=367995004 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1511.8685, 150.786, 1402.5537)
 
-[node name="GuideTap57" parent="BasicOBJ_Group/Tapper" index="212" unique_id=1064735975 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap57" parent="BasicOBJ_Group/Tapper" index="225" unique_id=1064735975 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1534.5996, 150.786, 1402.5537)
 
-[node name="GuideTap58" parent="BasicOBJ_Group/Tapper" index="213" unique_id=376843136 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap58" parent="BasicOBJ_Group/Tapper" index="226" unique_id=376843136 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1534.5996, 150.786, 1425.2849)
 
-[node name="GuideTap59" parent="BasicOBJ_Group/Tapper" index="214" unique_id=184915566 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap59" parent="BasicOBJ_Group/Tapper" index="227" unique_id=184915566 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1558.377, 150.786, 1425.2849)
 
-[node name="GuideTap60" parent="BasicOBJ_Group/Tapper" index="215" unique_id=1258621525 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap60" parent="BasicOBJ_Group/Tapper" index="228" unique_id=1258621525 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1558.377, 150.786, 1448.2686)
 
-[node name="GuideTap61" parent="BasicOBJ_Group/Tapper" index="216" unique_id=2059636653 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap61" parent="BasicOBJ_Group/Tapper" index="229" unique_id=2059636653 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1583.354, 150.786, 1448.2686)
 
-[node name="GuideTap62" parent="BasicOBJ_Group/Tapper" index="217" unique_id=1195945314 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap62" parent="BasicOBJ_Group/Tapper" index="230" unique_id=1195945314 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1583.354, 150.786, 1471.8303)
 
-[node name="GuideTap63" parent="BasicOBJ_Group/Tapper" index="218" unique_id=2058575386 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap63" parent="BasicOBJ_Group/Tapper" index="231" unique_id=2058575386 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1607.5107, 150.786, 1471.8303)
 
-[node name="GuideTap64" parent="BasicOBJ_Group/Tapper" index="219" unique_id=1328550071 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap64" parent="BasicOBJ_Group/Tapper" index="232" unique_id=1328550071 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1607.5107, 150.786, 1495.8188)
 
-[node name="GuideTap65" parent="BasicOBJ_Group/Tapper" index="220" unique_id=285566831 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap65" parent="BasicOBJ_Group/Tapper" index="233" unique_id=285566831 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1632.3408, 150.786, 1495.8188)
 
-[node name="GuideTap66" parent="BasicOBJ_Group/Tapper" index="221" unique_id=777714762 instance=ExtResource("8_jmy4o")]
+[node name="GuideTap66" parent="BasicOBJ_Group/Tapper" index="234" unique_id=777714762 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1632.341, 150.786, 1503.731)
 
-[node name="taper108" parent="BasicOBJ_Group/Tapper" index="222" unique_id=991816938 instance=ExtResource("8_jmy4o")]
+[node name="taper108" parent="BasicOBJ_Group/Tapper" index="235" unique_id=991816938 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2021.507, 221.85754, 1800.6702)
 
-[node name="taper109" parent="BasicOBJ_Group/Tapper" index="223" unique_id=1504237090 instance=ExtResource("8_jmy4o")]
+[node name="taper109" parent="BasicOBJ_Group/Tapper" index="236" unique_id=1504237090 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2021.507, 221.85754, 1812.5007)
 
-[node name="taper110" parent="BasicOBJ_Group/Tapper" index="224" unique_id=227817081 instance=ExtResource("8_jmy4o")]
+[node name="taper110" parent="BasicOBJ_Group/Tapper" index="237" unique_id=227817081 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2024.8848, 221.85754, 1812.5007)
 
-[node name="taper111" parent="BasicOBJ_Group/Tapper" index="225" unique_id=657832032 instance=ExtResource("8_jmy4o")]
+[node name="taper111" parent="BasicOBJ_Group/Tapper" index="238" unique_id=657832032 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2024.8848, 221.85754, 1820.2323)
 
-[node name="taper112" parent="BasicOBJ_Group/Tapper" index="226" unique_id=1816924201 instance=ExtResource("8_jmy4o")]
+[node name="taper112" parent="BasicOBJ_Group/Tapper" index="239" unique_id=1816924201 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2034.6124, 221.85754, 1820.2323)
 
-[node name="taper113" parent="BasicOBJ_Group/Tapper" index="227" unique_id=171341582 instance=ExtResource("8_jmy4o")]
+[node name="taper113" parent="BasicOBJ_Group/Tapper" index="240" unique_id=171341582 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2034.6124, 221.85754, 1825.8735)
 
-[node name="taper114" parent="BasicOBJ_Group/Tapper" index="228" unique_id=1547416429 instance=ExtResource("8_jmy4o")]
+[node name="taper114" parent="BasicOBJ_Group/Tapper" index="241" unique_id=1547416429 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2040.6025, 221.85754, 1825.8735)
 
-[node name="taper115" parent="BasicOBJ_Group/Tapper" index="229" unique_id=292679703 instance=ExtResource("8_jmy4o")]
+[node name="taper115" parent="BasicOBJ_Group/Tapper" index="242" unique_id=292679703 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2040.6025, 221.85754, 1837.6785)
 
-[node name="taper116" parent="BasicOBJ_Group/Tapper" index="230" unique_id=1003552936 instance=ExtResource("8_jmy4o")]
+[node name="taper116" parent="BasicOBJ_Group/Tapper" index="243" unique_id=1003552936 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2051.8425, 221.85754, 1837.6785)
 
 [node name="Node3D" type="Node3D" parent="." index="1" unique_id=514616355]
@@ -10347,33 +10388,29 @@ libraries/ = SubResource("AnimationLibrary_cm0pq")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Trigger33" type="Area3D" parent="Node3D" index="3" unique_id=867052251 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger33" parent="Node3D" index="3" unique_id=867052251 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-5, 0, 8.742278e-08, 0, 1, 0, -4.371139e-07, 0, -1, -527.2603, 44.50001, 416.92975)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger33" index="3" unique_id=2062820929]
 script = ExtResource("14_sk26j")
-height = 3.11
+height = 1.5
 
-[node name="Trigger58" type="Area3D" parent="Node3D" index="4" unique_id=376540239 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger58" parent="Node3D" index="4" unique_id=376540239 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -529.2603, 46.50001, 431.37332)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger58" index="3" unique_id=125334055]
 script = ExtResource("14_sk26j")
 height = 3.69
 
-[node name="Trigger62" type="Area3D" parent="Node3D" index="5" unique_id=984135767 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger62" parent="Node3D" index="5" unique_id=984135767 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -542.2272, 48.727417, 436.37332)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger62" index="3" unique_id=4096233]
 script = ExtResource("14_sk26j")
 height = 21.595
 
-[node name="Trigger110" type="Area3D" parent="Node3D" index="6" unique_id=1195269656 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger110" parent="Node3D" index="6" unique_id=1195269656 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-06, 0, -0.09999998, -727, 64.5, 560.45447)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger110" index="3" unique_id=471156697]
 script = ExtResource("14_sk26j")
@@ -10383,25 +10420,22 @@ transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-
 script = ExtResource("12_m86vw")
 new_speed = 20.0
 
-[node name="Trigger96" type="Area3D" parent="Node3D" index="8" unique_id=83479402 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger96" parent="Node3D" index="8" unique_id=83479402 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(7.944652e-08, 0, 0.1, 0, 4.9999995, 0, -10, 0, -8.742278e-09, -746, 49.5, 616)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger96" index="3" unique_id=1570854778]
 script = ExtResource("14_sk26j")
 height = 3.0
 
-[node name="Trigger99" type="Area3D" parent="Node3D" index="9" unique_id=900253675 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger99" parent="Node3D" index="9" unique_id=900253675 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -763, 49.5, 623)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger99" index="3" unique_id=477892564]
 script = ExtResource("14_sk26j")
 height = 3.0
 
-[node name="Trigger103" type="Area3D" parent="Node3D" index="10" unique_id=1573476265 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger103" parent="Node3D" index="10" unique_id=1573476265 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -768, 49.5, 636)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger103" index="3" unique_id=336862940]
 script = ExtResource("14_sk26j")
@@ -10995,6 +11029,25 @@ new_distance = 30.0
 new_follow_speed = 0.7
 need_time = 10.0
 
+[node name="camera trigger3" type="Node3D" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="23" unique_id=1062320229]
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -7.667923, 3.85, -0.8878107)
+
+[node name="CameraTrigger_0" parent="PART 1/camera trigger3" index="0" unique_id=971450756 instance=ExtResource("trigger_tscn_res")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PART 1/camera trigger3/CameraTrigger_0" index="0" unique_id=183020631]
+shape = SubResource("BoxShape3D_86qfw")
+
+[node name="CameraComp" type="Node3D" parent="PART 1/camera trigger3/CameraTrigger_0" index="4" unique_id=1664534940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5229815, 0, 0)
+script = ExtResource("19_xwfd1")
+use_legacy_parameters = true
+new_add_position = Vector3(-15, 0, 0)
+new_rotation = Vector3(30, -120, 0)
+new_distance = 0.0
+new_follow_speed = 0.7
+need_time = 0.0
+use_time = true
+
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 1/grassroad (2)" parent_id_path=PackedInt32Array(1109978047) index="0" unique_id=161417533]
 collision_layer = 2
 
@@ -11339,7 +11392,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 1/dirt wall (17)/StaticBody3D" index="0" unique_id=1286582241]
 shape = SubResource("ConvexPolygonShape3D_6x604")
 
-[node name="Diamond 1" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="54" unique_id=412891079]
+[node name="Diamond 1" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="55" unique_id=412891079]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 1/dirt wall (18)" parent_id_path=PackedInt32Array(1380986444) index="0" unique_id=701270996]
@@ -11348,7 +11401,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 1/dirt wall (18)/StaticBody3D" index="0" unique_id=1858705195]
 shape = SubResource("ConvexPolygonShape3D_l2tgc")
 
-[node name="river water" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="56" unique_id=1840913562]
+[node name="river water" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="57" unique_id=1840913562]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 1/river water" index="0" unique_id=86173251]
@@ -11508,7 +11561,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 1/riversideWithGrass (5)/StaticBody3D" index="0" unique_id=796595853]
 shape = SubResource("ConvexPolygonShape3D_0gcho")
 
-[node name="riverwater" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="80" unique_id=576246144]
+[node name="riverwater" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="81" unique_id=576246144]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 1/riverwater" index="0" unique_id=642901591]
@@ -12639,7 +12692,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 1/dirt wall with grass (16)/StaticBody3D" index="0" unique_id=1211693428]
 shape = SubResource("ConvexPolygonShape3D_mj41f")
 
-[node name="animator trigger (5)" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="155" unique_id=1458712442]
+[node name="animator trigger (5)" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="156" unique_id=1458712442]
 transform = Transform3D(14.142136, 0, -1.4142135, 0, 10, 0, 14.142136, 0, 1.4142135, -95.34, -0.5, 140.9)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 1/animator trigger (5)" index="0" unique_id=1546840758]
@@ -12704,10 +12757,10 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 1/Tree (3)/Tree8/StaticBody3D" index="0" unique_id=543508414]
 shape = SubResource("ConvexPolygonShape3D_d4h5b")
 
-[node name="Diamond" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="165" unique_id=1468634352 instance=ExtResource("2_crk26")]
+[node name="Diamond" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="166" unique_id=1468634352 instance=ExtResource("2_crk26")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -73.159996, 0.15720987, 33.478493)
 
-[node name="AnimatedWater" type="MeshInstance3D" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="166" unique_id=922827300]
+[node name="AnimatedWater" type="MeshInstance3D" parent="PART 1" parent_id_path=PackedInt32Array(1681005474) index="167" unique_id=922827300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.96131, -12.130674, 62.24083)
 cast_shadow = 0
 extra_cull_margin = 2.0
@@ -14925,13 +14978,19 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/StaticBody3D" index="0" unique_id=660950847]
 shape = SubResource("ConvexPolygonShape3D_rmjr1")
 
-[node name="Trigger32" type="Area3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)" parent_id_path=PackedInt32Array(1595206433) index="1" unique_id=2064529197 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger32" parent="PART 3/road part/泥土底座 (2)/草地面 (2)" parent_id_path=PackedInt32Array(1595206433) index="1" unique_id=2064529197 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-0.43859655, -2.2182443e-08, 7.189158e-08, -5.057609e-07, 0.4, -3.1643123e-07, -1.1989441e-06, -2.2732132e-07, -0.28735635, -0.2109375, 0.75409335, 0.5545654)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" index="3" unique_id=1846773385]
 script = ExtResource("14_sk26j")
-height = 6.5
+height = 4.0
+
+[node name="jumpre" type="Node3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" index="4" unique_id=1466005476]
+transform = Transform3D(-5.0000005, -2.5287983e-07, 8.19564e-07, -1.2644023e-06, 1, -7.9107804e-07, -4.1723256e-06, -7.910782e-07, -1.0000001, -449.5987, -0.34803724, 323.6499)
+top_level = true
+script = ExtResource("25_vy8j2")
+direction = 0
+draw_preview = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/road part/泥土底座 (2)" parent_id_path=PackedInt32Array(627552863) index="1" unique_id=1661884975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014834106, 0)
@@ -15424,7 +15483,7 @@ shape = SubResource("BoxShape3D_m62ix")
 [node name="CameraComp" type="Node3D" parent="PART 3/road part (2)/jump trigger (1)/CameraTrigger_0" index="4" unique_id=134573184]
 script = ExtResource("19_xwfd1")
 use_legacy_parameters = true
-new_add_position = Vector3(-10.25, -4.94, -11.95)
+new_add_position = Vector3(-5, 0, -11.95)
 new_rotation = Vector3(25, -175, 0)
 new_distance = 30.0
 new_follow_speed = 0.7
@@ -15505,13 +15564,12 @@ collision_layer = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)/StaticBody3D" index="0" unique_id=1873796683]
 shape = SubResource("ConvexPolygonShape3D_735wm")
 
-[node name="Trigger38" type="Area3D" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)" parent_id_path=PackedInt32Array(1254482000) index="1" unique_id=1559170363 instance=ExtResource("trigger_tscn_res")]
+[node name="Trigger38" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)" parent_id_path=PackedInt32Array(1254482000) index="1" unique_id=1559170363 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(3.655752e-08, -1.2644051e-08, 0.22567163, -3.1643086e-07, 0.40000007, 1.8693296e-06, -0.28571388, 2.1675515e-07, -1.2143998e-06, -1.2965012, 0.55976367, 5.27005)
-script = ExtResource("19_mgc26")
 
 [node name="Jump" type="Node3D" parent="PART 3/road part (2)/泥土底座 (4)/草地面 (4)/Trigger38" index="3" unique_id=1433630927]
 script = ExtResource("14_sk26j")
-height = 16.0
+height = 10.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/road part (2)/泥土底座 (4)" parent_id_path=PackedInt32Array(1057167966) index="2" unique_id=805077135]
 collision_layer = 2
@@ -15682,6 +15740,7 @@ shape = SubResource("ConvexPolygonShape3D_jcqjk")
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/dirt floor/Stalagmite5 (2)/StaticBody3D" index="0" unique_id=1521367713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2723236, 0, -0.02519226)
 shape = SubResource("ConvexPolygonShape3D_5wk7v")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/dirt floor/Stalagmite5 (1)" parent_id_path=PackedInt32Array(692441252) index="0" unique_id=576824703]
@@ -15738,9 +15797,6 @@ collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/dirt floor/StaticBody3D" index="0" unique_id=873427015]
 shape = SubResource("ConvexPolygonShape3D_7i30o")
-
-[node name="Diamond" parent="PART 3/dirt floor" parent_id_path=PackedInt32Array(1235697744) index="12" unique_id=1183889646 instance=ExtResource("2_crk26")]
-transform = Transform3D(0.04377397, 0, 0.036730714, 0, 0.028571418, 0, -0.036730714, 0, 0.04377397, 0.3443761, 0.50938874, -0.044605255)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/dirt wall with grass (117)" parent_id_path=PackedInt32Array(1394575707) index="1" unique_id=1487181956]
 collision_layer = 2
@@ -19051,7 +19107,7 @@ wait_times = Array[float]([0.0])
 transition_type = 1
 
 [node name="升起母体 (1)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="145" unique_id=850628303]
-transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 576.08, 61.58, 444.47)
+transform = Transform3D(5.9429, 0, -0.6694438, 0, 9.999998, 0, 5.3555503, 0, 0.7428625, -574.8876, 61.58, 437.2548)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 4/升起母体 (1)" index="0" unique_id=2067817241]
 script = ExtResource("19_mgc26")
@@ -19110,7 +19166,7 @@ wait_times = Array[float]([0.0])
 transition_type = 1
 
 [node name="升起母体 (5)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="148" unique_id=129766887]
-transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 592.7, 61.58, 469.46)
+transform = Transform3D(1.4827788, 0, -0.9826732, 0, 10.000001, 0, 7.861386, 0, 0.18534735, -586.6735, 61.58, 453.14105)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 4/升起母体 (5)" index="0" unique_id=1760537021]
 script = ExtResource("19_mgc26")
@@ -19186,7 +19242,7 @@ wait_times = Array[float]([0.0])
 transition_type = 1
 
 [node name="升起母体 (9)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="152" unique_id=1821985081]
-transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 619.13, 61.58, 495.92)
+transform = Transform3D(7.520256, 0, -0.34108564, 0, 9.999996, 0, 2.7286851, 0, 0.940032, -618.8668, 65.09242, 489.95847)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 4/升起母体 (9)" index="0" unique_id=428619068]
 script = ExtResource("19_mgc26")
@@ -19195,6 +19251,7 @@ script = ExtResource("19_mgc26")
 shape = SubResource("BoxShape3D_lsq1q")
 
 [node name="MovingPosMax_0_Component" type="Node3D" parent="PART 4/升起母体 (9)/MovingPosMax_0" index="1" unique_id=961989656 node_paths=PackedStringArray("animated_object")]
+transform = Transform3D(0.9999999, 0, 9.313226e-10, 0, 0.9999998, 0, -5.9604645e-08, 0, 0.9999999, -0.0007286072, 0, 0.048461914)
 script = ExtResource("20_m4i0l")
 animated_object = NodePath("../../../草围栏mom (8)")
 target_positions = Array[Vector3]([Vector3(-573.84, 49.05, 438.67)])
@@ -19330,7 +19387,7 @@ wait_times = Array[float]([0.0])
 transition_type = 1
 
 [node name="升起母体 (17)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="160" unique_id=1756853917]
-transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 677.34, 61.58, 538.68)
+transform = Transform3D(-1.6770122, 0, 0.9777815, 0, 10, 0, -7.822252, 0, -0.20962653, -674.7372, 61.58, 530.354)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 4/升起母体 (17)" index="0" unique_id=355002221]
 script = ExtResource("19_mgc26")
@@ -19355,7 +19412,7 @@ animation_names = Array[StringName]([&"lineaction4"])
 shape = SubResource("BoxShape3D_h1b0r")
 
 [node name="升起母体 (18)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="161" unique_id=715478249]
-transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 693.73, 61.58, 538.79)
+transform = Transform3D(-1.4092383, 0, 0.9843624, 0, 9.999999, 0, -7.8748994, 0, -0.17615479, -688.8643, 61.58, 537.2297)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 4/升起母体 (18)" index="0" unique_id=1178727193]
 script = ExtResource("19_mgc26")
@@ -20144,6 +20201,15 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 4/lines2/StaticBody3D" index="0" unique_id=1541501070]
 shape = SubResource("ConvexPolygonShape3D_4ths3")
+
+[node name="lines (1)2" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="255" unique_id=1469524281]
+transform = Transform3D(-0.99898475, 0, -0.04504887, 0, 1, 0, 0.04504887, 0, -0.99898475, -605.1, 65.12, 453.21)
+
+[node name="lines (4)2" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="257" unique_id=1926968525]
+transform = Transform3D(-0.17364807, 0, -0.9848078, 0, 1, 0, 0.9848078, 0, -0.17364807, -679.58, 65.12, 512.35)
+
+[node name="lines (5)2" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="258" unique_id=1415727050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -685.15, 62.03, 546.08997)
 
 [node name="lines (6)2" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="259" unique_id=235099490]
 transform = Transform3D(0.71238667, 0, 0.7017872, 0, 1, 0, -0.7017872, 0, 0.71238667, -709.35, 64.16, 537.05)
@@ -21132,14 +21198,17 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 4/lines (14)/StaticBody3D" index="0" unique_id=739253352]
 shape = SubResource("ConvexPolygonShape3D_m334h")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PART 4/lines (15)" parent_id_path=PackedInt32Array(826168166) index="0" unique_id=270658033]
+[node name="lines (15)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="393" unique_id=826168166]
+transform = Transform3D(0.8660253, 0, -0.5000001, 0, 1, 0, 0.5000001, 0, 0.8660253, -706.83, 62.03, 544.42)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PART 4/lines (15)" index="0" unique_id=270658033]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 4/lines (15)/StaticBody3D" index="0" unique_id=444235465]
 shape = SubResource("ConvexPolygonShape3D_p3aou")
 
 [node name="升起母体 (21)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="394" unique_id=198366517]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 8, 685.06, 61.58, 538.32)
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 8, -679.2825, 61.58, 538.32)
 
 [node name="CustomAnimPlay_0" type="Area3D" parent="PART 4/升起母体 (21)" index="0" unique_id=382014727 node_paths=PackedStringArray("animations")]
 script = ExtResource("19_i04bb")
@@ -21174,6 +21243,7 @@ shape = SubResource("ConvexPolygonShape3D_trd8e")
 transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 583.43, 61.58, 453.65)
 
 [node name="CustomAnimPlay_0" type="Area3D" parent="PART 4/升起母体 (3)" index="0" unique_id=482104522 node_paths=PackedStringArray("animations")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, -103.86456, 0, -830.9165)
 script = ExtResource("19_i04bb")
 animations = [NodePath("../../../Node3D2/lineaction2")]
 animation_names = Array[StringName]([&"lineaction2"])
@@ -21182,7 +21252,7 @@ animation_names = Array[StringName]([&"lineaction2"])
 shape = SubResource("BoxShape3D_d60ub")
 
 [node name="升起母体 (22)" parent="PART 4" parent_id_path=PackedInt32Array(1524302261) index="400" unique_id=963271871]
-transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, 692.64, 61.58, 547.38)
+transform = Transform3D(5.656854, 0, 0.70710677, 0, 10, 0, -5.656854, 0, 0.70710677, -692.47955, 61.58, 546.85144)
 
 [node name="CustomAnimPlay_0" type="Area3D" parent="PART 4/升起母体 (22)" index="0" unique_id=208903382 node_paths=PackedStringArray("animations")]
 script = ExtResource("19_i04bb")
@@ -21196,6 +21266,7 @@ shape = SubResource("BoxShape3D_v657k")
 transform = Transform3D(8, 0, 0, 0, 10, 0, 0, 0, 1, 668.78, 61.58, 520.6)
 
 [node name="CustomAnimPlay_0" type="Area3D" parent="PART 4/升起母体 (23)" index="0" unique_id=81988637 node_paths=PackedStringArray("animations")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.16853, 0, -13.520874)
 script = ExtResource("19_i04bb")
 animations = [NodePath("../../../Node3D2/lineaction3")]
 animation_names = Array[StringName]([&"lineaction3"])
@@ -22712,7 +22783,7 @@ wait_times = Array[float]([0.1])
 transition_type = 1
 
 [node name="TriggerA (9)" parent="PART 6" parent_id_path=PackedInt32Array(471420585) index="77" unique_id=1558395571]
-transform = Transform3D(7.071068, 0, 0.70710677, 0, 5, 0, -7.071068, 0, 0.70710677, 856.06, 87.5, 752.09)
+transform = Transform3D(-0.46983862, 0, 0.9988955, 0, 4.9999995, 0, -9.988956, 0, -0.046983838, -865.48364, 93.05115, 763.8626)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 6/TriggerA (9)" index="0" unique_id=898787611]
 script = ExtResource("19_mgc26")
@@ -22768,7 +22839,7 @@ wait_times = Array[float]([0.0])
 transition_type = 1
 
 [node name="TriggerA (11)" parent="PART 6" parent_id_path=PackedInt32Array(471420585) index="79" unique_id=1539032234]
-transform = Transform3D(7.071068, 0, 0.70710677, 0, 5, 0, -7.071068, 0, 0.70710677, 876.29, 87.5, 777.9)
+transform = Transform3D(8.551298, 0, -0.5184141, 0, 5, 0, 5.18414, 0, 0.85512966, -876.3004, 87.5, 776.57947)
 
 [node name="CustomAnimPlay_0" type="Area3D" parent="PART 6/TriggerA (11)" index="0" unique_id=569905648 node_paths=PackedStringArray("animations")]
 script = ExtResource("19_i04bb")
@@ -22809,13 +22880,16 @@ collision_layer = 2
 shape = SubResource("ConvexPolygonShape3D_vjcau")
 
 [node name="Rock9 (9)" parent="PART 6" parent_id_path=PackedInt32Array(471420585) index="85" unique_id=1160442401]
-transform = Transform3D(1.8635749, 0, 2.350976, 0, 6, 0, -2.350976, 0, 1.8635749, -873.92, 120, 789.46)
+transform = Transform3D(1.8635749, 0, 2.350976, 0, 6, 0, -2.350976, 0, 1.8635749, -873.92, 10, 789.46)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 6/Rock9 (9)" index="0" unique_id=570562963]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 6/Rock9 (9)/StaticBody3D" index="0" unique_id=933242928]
 shape = SubResource("ConvexPolygonShape3D_455wa")
+
+[node name="栈道塌陷" parent="PART 6" parent_id_path=PackedInt32Array(471420585) index="86" unique_id=1297567214]
+transform = Transform3D(1, 0, 0, 0, 0.17364822, -0.9848077, 0, 0.9848077, 0.17364822, -873.54, 20, 781.43)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 6/栈道塌陷/栈道 (21)" parent_id_path=PackedInt32Array(1663865478) index="0" unique_id=6298219]
 collision_layer = 2
@@ -22829,14 +22903,14 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 6/栈道塌陷/栈道 (20)/StaticBody3D" index="0" unique_id=451477223]
 shape = SubResource("ConvexPolygonShape3D_htgn4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PART 6/栈道塌陷" parent_id_path=PackedInt32Array(1297567214) index="2" unique_id=68589434]
+[node name="StaticBody3D" type="StaticBody3D" parent="PART 6/栈道塌陷" index="2" unique_id=68589434]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 6/栈道塌陷/StaticBody3D" index="0" unique_id=899856392]
 shape = SubResource("ConvexPolygonShape3D_dskkp")
 
 [node name="栈道塌陷2" parent="PART 6" parent_id_path=PackedInt32Array(471420585) index="87" unique_id=1429965128]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -883.37, 85.42, 788.6127)
+transform = Transform3D(-4.371139e-08, 0.9848077, -0.17364834, 0, 0.17364834, 0.9848077, 1, 4.304731e-08, -7.59041e-09, -883.37, 20, 788.6127)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 6/栈道塌陷2/栈道 (22)" parent_id_path=PackedInt32Array(1273128156) index="0" unique_id=249137969]
 collision_layer = 2
@@ -25507,6 +25581,7 @@ shape = SubResource("ConvexPolygonShape3D_t2rsh")
 transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, 1040.33, 115.52, 955.4462)
 
 [node name="CustomAnimPlay_0" type="Area3D" parent="PART 7/雪粒子触发器" index="0" unique_id=1975906092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -422.7316, 0, 5.9509735)
 script = ExtResource("19_i04bb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 7/雪粒子触发器/CustomAnimPlay_0" index="0" unique_id=1671949340]
@@ -29603,6 +29678,9 @@ field_of_view = 70.29999
 duration = 0.0
 use_time = true
 trigger_time = 0.1
+
+[node name="Gem" parent="." index="32" unique_id=1967176249 instance=ExtResource("2_crk26")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -493.67578, 48.50001, 397.5671)
 
 [connection signal="body_entered" from="Node3D/Trigger33" to="Node3D/Trigger33" method="_on_body_entered"]
 [connection signal="body_entered" from="Node3D/Trigger58" to="Node3D/Trigger58" method="_on_body_entered"]
