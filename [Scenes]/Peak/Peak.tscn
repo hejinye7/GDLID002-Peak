@@ -9599,6 +9599,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="GuidanceBoxHolder" type="Node3D" parent="BasicOBJ_Group" index="0" unique_id=1163463213]
 
 [node name="Player" parent="BasicOBJ_Group" index="1" unique_id=1905697100 instance=ExtResource("19_kmo8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -419.85358, -0.027084827, 303.58948)
 floor_snap_length = 1.0
 firstDirection = Vector3(0, -90, 0)
 secondDirection = Vector3(0, 0, 0)
@@ -9606,6 +9607,7 @@ animation = NodePath("../AnimationPlayer")
 level_data = ExtResource("2_07gtp")
 
 [node name="Trigger" parent="BasicOBJ_Group/Player" index="6" unique_id=608483111 instance=ExtResource("trigger_tscn_res")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -0.6248393, 0)
 script = ExtResource("5_m4i0l")
 enable = true
 
@@ -9744,7 +9746,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.57907, -0.25526303, 279.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -229.31708, -0.25526303, 279.8621)
 
 [node name="taper36" parent="BasicOBJ_Group/Tapper" index="36" unique_id=1877799184 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -229.31708, -0.25526303, 303.584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -229.31708, -0.25526303, 302.97357)
 
 [node name="GuidanceBox 74" parent="BasicOBJ_Group/Tapper" index="37" unique_id=1043752701 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -527.078, 45.84568, 431.96335)
@@ -10410,7 +10412,14 @@ transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -529.
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger58" index="3" unique_id=125334055]
 script = ExtResource("14_sk26j")
-height = 3.0
+height = 1.2
+
+[node name="Node3D" type="Node3D" parent="Node3D/Trigger58" index="4" unique_id=2059730241]
+transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -529.2603, 46.50001, 431.37332)
+top_level = true
+script = ExtResource("25_vy8j2")
+reverse = true
+draw_preview = true
 
 [node name="Trigger62" parent="Node3D" index="5" unique_id=984135767 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -542.2272, 48.727417, 436.37332)
@@ -10817,7 +10826,6 @@ shape = SubResource("BoxShape3D_b0n28")
 
 [node name="CameraComp" type="Node3D" parent="Trigger/CameraTrigger_0" index="4" unique_id=876136387]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 active_position = false
 new_add_position = Vector3(-16.85, -5.98, 12.83)
 active_rotate = false
@@ -11032,7 +11040,6 @@ shape = SubResource("BoxShape3D_86qfw")
 
 [node name="CameraComp" type="Node3D" parent="PART 1/camera trigger/CameraTrigger_0" index="4" unique_id=758347803]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-6, 0, 16.8)
 new_rotation = Vector3(30, -30, 0)
 new_distance = 30.0
@@ -11050,7 +11057,6 @@ shape = SubResource("BoxShape3D_86qfw")
 [node name="CameraComp" type="Node3D" parent="PART 1/camera trigger3/CameraTrigger_0" index="4" unique_id=1664534940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5229815, 0, 0)
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-15, 0, 0)
 new_rotation = Vector3(30, -120, 0)
 new_distance = 0.0
@@ -14125,7 +14131,6 @@ shape = SubResource("BoxShape3D_yqkg1")
 
 [node name="CameraComp" type="Node3D" parent="PART 2/ca&ani trigger/CameraTrigger_0" index="4" unique_id=856844303]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-9.35, -5.3, 11.82)
 new_rotation = Vector3(25, -15, 0)
 new_distance = 30.0
@@ -14898,6 +14903,13 @@ shape = SubResource("ConvexPolygonShape3D_nahqp")
 [node name="Crown" parent="PART 2" parent_id_path=PackedInt32Array(843761718) index="192" unique_id=2013656450 instance=ExtResource("4_dmiec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -419.85358, -0.027084827, 303.58948)
 AutoRecord = true
+GameTime = 48.114647
+PlayerSpeed = 15.0
+camera_new = -9223369864138176753
+camera_old = -9223371777395116856
+fog = -9223371777378339639
+light = -9223371777361562422
+ambient = -9223371777344785205
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/Rock Type3 022" parent_id_path=PackedInt32Array(595364168) index="0" unique_id=1224654439]
 collision_layer = 2
@@ -14949,7 +14961,6 @@ shape = SubResource("BoxShape3D_og4tf")
 
 [node name="CameraComp" type="Node3D" parent="PART 3/road part/animator trigger13/CameraTrigger_0" index="4" unique_id=978707350]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-7.89, 0.97, 12.83)
 new_rotation = Vector3(45, -40, 0)
 new_distance = 30.0
@@ -15492,7 +15503,6 @@ shape = SubResource("BoxShape3D_m62ix")
 
 [node name="CameraComp" type="Node3D" parent="PART 3/road part (2)/jump trigger (1)/CameraTrigger_0" index="4" unique_id=134573184]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-5, 0, -11.95)
 new_rotation = Vector3(25, -175, 0)
 new_distance = 30.0
@@ -15802,7 +15812,6 @@ shape = SubResource("BoxShape3D_t65w6")
 
 [node name="CameraComp" type="Node3D" parent="PART 3/dirt floor/camera/CameraTrigger_0" index="4" unique_id=542217964]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-4.88, -5.43, -3.67)
 new_rotation = Vector3(30, -190, 0)
 new_distance = 35.0
@@ -16016,7 +16025,6 @@ shape = SubResource("BoxShape3D_8qvs1")
 
 [node name="CameraComp" type="Node3D" parent="PART 3/hill (1)/jump (2)/CameraTrigger_0" index="4" unique_id=359950103]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-13.27, 4.48, 11.53)
 new_rotation = Vector3(25, -45, 0)
 new_distance = 30.0
@@ -21561,7 +21569,6 @@ shape = SubResource("BoxShape3D_735wm")
 
 [node name="CameraComp" type="Node3D" parent="PART 5/升起地面 （母体 (3)/Trigger (4)/CameraTrigger_0" index="4" unique_id=743915096]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-13.48, -12.1, 12.09)
 new_rotation = Vector3(50, -41, 0)
 new_distance = 30.0
@@ -21997,7 +22004,6 @@ shape = SubResource("BoxShape3D_gr8ur")
 
 [node name="CameraComp" type="Node3D" parent="PART 5/升起地面 （母体 (4)/Trigger（第一个环境转换）/CameraTrigger_0" index="4" unique_id=874588661]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-4.450012, 5, 8.8)
 new_rotation = Vector3(63.109, -24.363, -10.411)
 new_distance = 30.0
@@ -23044,7 +23050,6 @@ shape = SubResource("BoxShape3D_7i30o")
 
 [node name="CameraComp" type="Node3D" parent="PART 7/碎石坡的母体/碎石坡视角变化/CameraTrigger_0" index="4" unique_id=943031695]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-8, 6, 9)
 new_rotation = Vector3(30, -45, 0)
 new_distance = 35.0
@@ -24705,7 +24710,6 @@ shape = SubResource("BoxShape3D_3tn4x")
 
 [node name="CameraComp" type="Node3D" parent="PART 7/第二块升起部分/相机/CameraTrigger_0" index="4" unique_id=303196012]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-1.4, -4, 13.5)
 new_rotation = Vector3(35, 7, 0)
 new_distance = 30.0
@@ -25385,7 +25389,6 @@ shape = SubResource("BoxShape3D_ifvmp")
 
 [node name="CameraComp" type="Node3D" parent="PART 7/PART7 相机+雾+背景/CameraTrigger_0" index="4" unique_id=268038284]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-6.6, -5.4, 10)
 new_rotation = Vector3(40, -77.5, 0)
 new_distance = 30.0
@@ -27979,7 +27982,6 @@ shape = SubResource("BoxShape3D_v0bhp")
 
 [node name="CameraComp" type="Node3D" parent="PART 9/camera ditrction 2/CameraTrigger_0" index="4" unique_id=633357747]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(5.5, 29, -5)
 new_rotation = Vector3(45, -45, 0)
 new_distance = 30.0
@@ -28953,7 +28955,6 @@ shape = SubResource("BoxShape3D_8p4bg")
 
 [node name="CameraComp" type="Node3D" parent="PART 9/camera direction/CameraTrigger_0" index="4" unique_id=455676895]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(-19.3, 39, 0)
 new_rotation = Vector3(45, 40, 0)
 new_distance = 30.0
@@ -28988,7 +28989,6 @@ shape = SubResource("BoxShape3D_f778w")
 
 [node name="CameraComp" type="Node3D" parent="PART 9/camera ditrction 2 (1)/CameraTrigger_0" index="4" unique_id=888903879]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(5.5, 29, -5)
 new_rotation = Vector3(30, -45, 0)
 new_distance = 30.0
@@ -29678,7 +29678,6 @@ shape = SubResource("BoxShape3D_f801i")
 
 [node name="CameraComp" type="Node3D" parent="PART 9/camera ditrction 2 (2)/CameraTrigger_0" index="4" unique_id=365422091]
 script = ExtResource("19_xwfd1")
-use_legacy_parameters = true
 new_add_position = Vector3(5.5, 29, -5)
 new_rotation = Vector3(30, -45, 0)
 new_distance = 30.0
@@ -29692,14 +29691,10 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1632.203, 150.40721, 1503.73
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1653.2578, 150.39691, 1524.8995)
 
 [node name="Trigger2" parent="." index="31" unique_id=882867373 instance=ExtResource("trigger_tscn_res")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.5308163, -0.5, -0.38469553)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.5308163, -1.5350678, -0.38469553)
 
 [node name="Node3D" type="Node3D" parent="Trigger2" index="2" unique_id=194662835]
 script = ExtResource("19_xwfd1")
-offset = Vector3(6.3091984, 7.6989164, -0.17972268)
-camera_rotation = Vector3(-0.4345676, 1.7000042, -1.0231673)
-field_of_view = 70.29999
-duration = 0.0
 use_time = true
 trigger_time = 0.1
 
