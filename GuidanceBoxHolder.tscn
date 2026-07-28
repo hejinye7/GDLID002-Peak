@@ -1,0 +1,285 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://#Template/[Resources]/GuidanceBox.tscn" id="1_seypr"]
+
+[node name="GuidanceBoxHolder" type="Node3D" unique_id=1163463213]
+
+[node name="OriginalGuidanceBox" parent="." unique_id=1723303954 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.45, 0)
+visible = false
+
+[node name="GuidanceBox 0" parent="." unique_id=1240587041 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.25, -0.45, -2.1964931e-06)
+visible = false
+
+[node name="GuidanceBox 1" parent="." unique_id=1175776650 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -50.25, -0.45, 18.999998)
+visible = false
+
+[node name="GuidanceBox 2" parent="." unique_id=91486923 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.99999, -0.45, 18.999998)
+visible = false
+
+[node name="GuidanceBox 3" parent="." unique_id=460173235 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -55.99999, -0.45, 30.749994)
+visible = false
+
+[node name="GuidanceBox 4" parent="." unique_id=1937043427 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.99999, -0.45, 30.749994)
+visible = false
+
+[node name="GuidanceBox 5" parent="." unique_id=918372647 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -61.99999, -0.45, 34.249992)
+visible = false
+
+[node name="GuidanceBox 6" parent="." unique_id=1880915776 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.499985, -0.45, 34.249992)
+visible = false
+
+[node name="GuidanceBox 7" parent="." unique_id=85305897 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72.499985, -0.45, 45.249992)
+visible = false
+
+[node name="GuidanceBox 8" parent="." unique_id=1791030608 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.249985, -0.45, 45.249992)
+visible = false
+
+[node name="GuidanceBox 9" parent="." unique_id=1688039145 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -78.25144, -0.4496333, 102.69977)
+visible = false
+
+[node name="GuidanceBox 10" parent="." unique_id=1359618104 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.25144, -0.4496333, 102.69977)
+visible = false
+
+[node name="GuidanceBox 11" parent="." unique_id=563856247 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -86.25144, -0.4496333, 120.69977)
+visible = false
+
+[node name="GuidanceBox 12" parent="." unique_id=2019651024 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.00144, -0.4496333, 120.69977)
+visible = false
+
+[node name="GuidanceBox 13" parent="." unique_id=1845318375 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -96.00144, -0.4496333, 140.19977)
+visible = false
+
+[node name="GuidanceBox 14" parent="." unique_id=1098637229 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.00144, -0.4496333, 140.19977)
+visible = false
+
+[node name="GuidanceBox 15" parent="." unique_id=1897242523 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.00118, -0.44957405, 210.94713)
+visible = false
+
+[node name="GuidanceBox 16" parent="." unique_id=1238536323 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.50118, -0.44957405, 210.94713)
+visible = false
+
+[node name="GuidanceBox 17" parent="." unique_id=1252998277 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -127.50118, -0.44957405, 215.94713)
+visible = false
+
+[node name="GuidanceBox 18" parent="." unique_id=859870435 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.50119, -0.44957405, 215.94713)
+visible = false
+
+[node name="GuidanceBox 19" parent="." unique_id=1173221242 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -133.50119, -0.44957405, 226.69713)
+visible = false
+
+[node name="GuidanceBox 20" parent="." unique_id=37176714 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.50119, -0.44957405, 226.69713)
+visible = false
+
+[node name="GuidanceBox 21" parent="." unique_id=2126379037 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -138.50119, -0.44957405, 233.44713)
+visible = false
+
+[node name="GuidanceBox 22" parent="." unique_id=1668200391 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.25119, -0.44957405, 233.44713)
+visible = false
+
+[node name="GuidanceBox 23" parent="." unique_id=1929570204 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -141.25119, -0.44957405, 242.44713)
+visible = false
+
+[node name="GuidanceBox 24" parent="." unique_id=1116755060 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.25119, -0.44957405, 242.44713)
+visible = false
+
+[node name="GuidanceBox 25" parent="." unique_id=265287814 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -148.25119, -0.44957405, 246.94713)
+visible = false
+
+[node name="GuidanceBox 26" parent="." unique_id=1000905724 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.50119, -0.44957405, 246.94713)
+visible = false
+
+[node name="GuidanceBox 27" parent="." unique_id=1943142593 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -204.50119, -0.44957405, 257.94714)
+visible = false
+
+[node name="GuidanceBox 28" parent="." unique_id=1816708732 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.50119, -0.44957405, 257.94714)
+visible = false
+
+[node name="GuidanceBox 29" parent="." unique_id=1844305267 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -209.50119, -0.44957405, 266.69714)
+visible = false
+
+[node name="GuidanceBox 30" parent="." unique_id=1715609710 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.25119, -0.44957405, 266.69714)
+visible = false
+
+[node name="GuidanceBox 31" parent="." unique_id=1870310100 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -215.25119, -0.44957405, 275.19714)
+visible = false
+
+[node name="GuidanceBox 32" parent="." unique_id=1499592664 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -222.50119, -0.44957405, 275.19714)
+visible = false
+
+[node name="GuidanceBox 33" parent="." unique_id=1048481482 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -222.50119, -0.44957405, 280.19714)
+visible = false
+
+[node name="GuidanceBox 34" parent="." unique_id=1522712741 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -231.00119, -0.44957405, 280.19714)
+visible = false
+
+[node name="GuidanceBox 35" parent="." unique_id=1834544706 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -231.00119, -0.44957405, 304.44714)
+visible = false
+
+[node name="GuidanceBox 36" parent="." unique_id=770001005 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -422.5012, -0.44957405, 304.44714)
+
+[node name="OriginalGuidanceBox2" parent="." unique_id=1869130401 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -419.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 37" parent="." unique_id=746331817 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.35358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 38" parent="." unique_id=136504176 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -436.35358, -0.8646761, 313.08954)
+
+[node name="GuidanceBox 39" parent="." unique_id=693277491 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.35327, -0.046575725, 313.08954)
+
+[node name="GuidanceBox 40" parent="." unique_id=1620208225 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -443.35327, 2.1191127, 321.34)
+
+[node name="GuidanceBox 41" parent="." unique_id=137755016 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.3576, 4.822541, 321.34)
+
+[node name="OriginalGuidanceBox3" parent="." unique_id=1202031563 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -419.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 42" parent="." unique_id=1353397557 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -437.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 43" parent="." unique_id=1218596584 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -437.85358, -0.8441073, 313.33954)
+
+[node name="GuidanceBox 44" parent="." unique_id=787245794 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -442.85358, -0.31281164, 313.33954)
+
+[node name="GuidanceBox 45" parent="." unique_id=1309294312 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -442.85358, 1.7301939, 321.84036)
+
+[node name="GuidanceBox 46" parent="." unique_id=1677119440 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.3577, 4.566403, 321.84036)
+
+[node name="OriginalGuidanceBox4" parent="." unique_id=682287193 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -419.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 47" parent="." unique_id=1186390453 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -437.10358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 48" parent="." unique_id=309507494 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -437.10358, -0.864575, 312.83954)
+
+[node name="GuidanceBox 49" parent="." unique_id=1249119906 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.10352, -0.2292192, 312.83954)
+
+[node name="GuidanceBox 50" parent="." unique_id=1552180896 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -443.10352, 1.9617224, 321.58997)
+
+[node name="GuidanceBox 51" parent="." unique_id=734398117 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.1077, 4.65215, 321.59506)
+
+[node name="OriginalGuidanceBox5" parent="." unique_id=1590043150 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -419.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 52" parent="." unique_id=1318971769 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 53" parent="." unique_id=1319574272 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -436.85358, -0.85513, 313.08954)
+
+[node name="GuidanceBox 54" parent="." unique_id=2006889768 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.10336, -0.14039755, 313.08954)
+
+[node name="GuidanceBox 55" parent="." unique_id=773799609 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -443.10336, 2.0401986, 321.59006)
+
+[node name="GuidanceBox 56" parent="." unique_id=913543714 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.8576, 4.992831, 321.59525)
+
+[node name="OriginalGuidanceBox6" parent="." unique_id=2023767682 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -419.85358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 57" parent="." unique_id=549814959 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -437.10358, -0.44947156, 303.58948)
+
+[node name="GuidanceBox 58" parent="." unique_id=34624012 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -437.10358, -0.8441073, 313.33954)
+
+[node name="GuidanceBox 59" parent="." unique_id=752465286 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -442.85336, -0.18545341, 313.33954)
+
+[node name="GuidanceBox 60" parent="." unique_id=984107031 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -442.85336, 2.1191328, 322.34048)
+
+[node name="GuidanceBox 61" parent="." unique_id=1582053802 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -452.10767, 5.248627, 322.34048)
+
+[node name="GuidanceBox 62" parent="." unique_id=314170032 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -452.10767, 10.092401, 340.15472)
+
+[node name="GuidanceBox 63" parent="." unique_id=499727141 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.33667, 12.026587, 340.33328)
+
+[node name="GuidanceBox 64" parent="." unique_id=1713779613 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -467.33667, 16.36112, 355.32956)
+
+[node name="GuidanceBox 65" parent="." unique_id=2003343777 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -484.5905, 21.852276, 355.32956)
+
+[node name="GuidanceBox 66" parent="." unique_id=2050972577 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -484.5905, 29.950901, 390.82956)
+
+[node name="GuidanceBox 67" parent="." unique_id=21642909 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -494.5905, 31.269918, 390.82956)
+
+[node name="GuidanceBox 68" parent="." unique_id=391778485 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -494.5905, 33.934753, 397.82956)
+
+[node name="GuidanceBox 69" parent="." unique_id=1724960037 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -503.0905, 38.138123, 397.82956)
+
+[node name="GuidanceBox 70" parent="." unique_id=1207134615 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -503.0905, 41.539776, 405.07956)
+
+[node name="GuidanceBox 71" parent="." unique_id=324091960 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -519.578, 44.55022, 405.07895)
+
+[node name="GuidanceBox 72" parent="." unique_id=2107238330 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -519.578, 44.55022, 412.07895)
+
+[node name="GuidanceBox 73" parent="." unique_id=491219821 instance=ExtResource("1_seypr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -527.078, 44.55022, 412.07895)
+
+[node name="GuidanceBox 74" parent="." unique_id=573198885 instance=ExtResource("1_seypr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -527.078, 45.84568, 431.96335)
