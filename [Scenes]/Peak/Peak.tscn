@@ -11,9 +11,9 @@
 [ext_resource type="Script" uid="uid://cq7y41sswinln" path="res://#Template/[Scripts]/Guidance/GuidanceController.gd" id="8_f3e83"]
 [ext_resource type="Script" uid="uid://euy0ojg0n2sc" path="res://[Scenes]/Peak/SetFogLinear.gd" id="8_fsd5d"]
 [ext_resource type="PackedScene" uid="uid://cceydenrkikf3" path="res://#Template/[Resources]/GuidanceBox.tscn" id="8_jmy4o"]
-[ext_resource type="Script" uid="uid://1drpur8av4v2" path="res://[Scenes]/Peak/ChangeSpeedTrigger.gd" id="12_m86vw"]
 [ext_resource type="Script" uid="uid://cu08nct5ud6vc" path="res://#Template/[Scripts]/Trigger/Jump.gd" id="14_sk26j"]
-[ext_resource type="PackedScene" uid="uid://0xnvkyq0e56a" path="res://[Scenes]/Peak/triggerscaled.tscn" id="18_kseew"]
+[ext_resource type="Script" uid="uid://drnbjbioqg67t" path="res://#Template/[Scripts]/Trigger/Speed.gd" id="15_vy8j2"]
+[ext_resource type="Script" uid="uid://df6gwnqt226sr" path="res://#Template/[Scripts]/Trigger/GravityTrigger.gd" id="16_c7vge"]
 [ext_resource type="Script" uid="uid://fd8r2kq3fyvb" path="res://[Scenes]/Peak/customanimplay.gd" id="19_i04bb"]
 [ext_resource type="PackedScene" uid="uid://brdmblcywuklx" path="res://#Template/Player.tscn" id="19_kmo8t"]
 [ext_resource type="Script" uid="uid://bb5lh2cc1yfy4" path="res://#Template/[Scripts]/Trigger/Single/BaseTrigger.gd" id="19_mgc26"]
@@ -25,6 +25,7 @@
 [ext_resource type="Shader" uid="uid://3m5g3h25x0i8" path="res://[Scenes]/Peak/water_shader.gdshader" id="23_sk26j"]
 [ext_resource type="Script" uid="uid://wgnsj5toosr4" path="res://[Scenes]/Peak/water_controller.gd" id="24_vy8j2"]
 [ext_resource type="Script" uid="uid://bdbb1ogxk0fcr" path="res://#Template/[Scripts]/Trigger/JumpPredictor.gd" id="25_vy8j2"]
+[ext_resource type="Script" uid="uid://dxc2vgmo4vibn" path="res://[Scenes]/Peak/fuckpeakjumptrigger.gd" id="26_c7vge"]
 [ext_resource type="PackedScene" uid="uid://b5hb8j8w782ki" path="res://#Template/Trigger.tscn" id="trigger_tscn_res"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_liba4"]
@@ -9599,7 +9600,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="GuidanceBoxHolder" type="Node3D" parent="BasicOBJ_Group" index="0" unique_id=1163463213]
 
 [node name="Player" parent="BasicOBJ_Group" index="1" unique_id=1905697100 instance=ExtResource("19_kmo8t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -419.85358, -0.027084827, 303.58948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -692.96185, 62.585297, 553.89197)
 floor_snap_length = 1.0
 firstDirection = Vector3(0, -90, 0)
 secondDirection = Vector3(0, 0, 0)
@@ -9776,19 +9777,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -494.5905, 31.269918, 390.829
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -484.5905, 29.950901, 390.82956)
 
 [node name="GuidanceBox 65" parent="BasicOBJ_Group/Tapper" index="46" unique_id=1862829559 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -484.5905, 20.982267, 355.32956)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -484.5905, 21.671759, 354.80386)
 
 [node name="GuidanceBox 64" parent="BasicOBJ_Group/Tapper" index="47" unique_id=1796513859 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -467.33667, 15.926336, 355.32956)
 
 [node name="GuidanceBox 63" parent="BasicOBJ_Group/Tapper" index="48" unique_id=1328397793 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.33667, 12.026587, 340.33328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.33667, 12.026587, 338.16592)
 
 [node name="GuidanceBox 62" parent="BasicOBJ_Group/Tapper" index="49" unique_id=787388086 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -452.10767, 10.092401, 340.15472)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -450.4367, 10.092401, 338.15472)
 
 [node name="GuidanceBox 61" parent="BasicOBJ_Group/Tapper" index="50" unique_id=1098789326 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -452.10767, 5.248627, 322.34048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -450.6088, 5.248627, 322.34048)
 
 [node name="GuidanceBox 60" parent="BasicOBJ_Group/Tapper" index="51" unique_id=243154191 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -442.85336, 2.1191328, 322.34048)
@@ -9806,7 +9807,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -437.10358, -0.44947156, 303.
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -419.85358, -0.44947156, 303.58948)
 
 [node name="GuideTap68" parent="BasicOBJ_Group/Tapper" index="56" unique_id=189020262 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -540.47986, 47.415543, 431.5146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -540.47986, 47.415543, 431.75162)
 
 [node name="GuideTap69" parent="BasicOBJ_Group/Tapper" index="57" unique_id=95548635 instance=ExtResource("8_jmy4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -540.47986, 47.415543, 436.24008)
@@ -9875,7 +9876,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -692.92163, 61.651, 553.89197
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727.7104, 61.651, 553.89197)
 
 [node name="taper78" parent="BasicOBJ_Group/Tapper" index="79" unique_id=174263487 instance=ExtResource("8_jmy4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727.9884, 47.213844, 597.02216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727.65405, 47.213844, 597.02216)
 top_level = true
 
 [node name="taper79" parent="BasicOBJ_Group/Tapper" index="80" unique_id=1707529787 instance=ExtResource("8_jmy4o")]
@@ -10426,7 +10427,13 @@ transform = Transform3D(6.556709e-07, 0, 1, 0, 1, 0, -5, 0, 1.3113416e-07, -542.
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger62" index="3" unique_id=4096233]
 script = ExtResource("14_sk26j")
-height = 21.595
+height = 14.0
+
+[node name="jumppre" type="Node3D" parent="Node3D/Trigger62" index="4" unique_id=1686964360]
+script = ExtResource("25_vy8j2")
+speed_x = 15.0
+reverse = true
+draw_preview = true
 
 [node name="Trigger110" parent="Node3D" index="6" unique_id=1195269656 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-06, 0, -0.09999998, -727, 64.5, 560.45447)
@@ -10434,27 +10441,30 @@ transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-
 [node name="Jump" type="Node3D" parent="Node3D/Trigger110" index="3" unique_id=471156697]
 script = ExtResource("14_sk26j")
 
-[node name="Trigger111" parent="Node3D" index="7" unique_id=1194761348 instance=ExtResource("18_kseew")]
-transform = Transform3D(-9.999997, 0, 8.742275e-09, 0, 4.9999986, 0, -2.304739e-06, 0, -0.09999998, -727, 64.5, 560.96063)
-script = ExtResource("12_m86vw")
+[node name="speed" type="Node3D" parent="Node3D/Trigger110" index="4" unique_id=1672537366]
+script = ExtResource("15_vy8j2")
 new_speed = 20.0
 
-[node name="Trigger96" parent="Node3D" index="8" unique_id=83479402 instance=ExtResource("trigger_tscn_res")]
-transform = Transform3D(7.944652e-08, 0, 0.1, 0, 4.9999995, 0, -10, 0, -8.742278e-09, -746, 49.5, 616)
+[node name="gravity" type="Node3D" parent="Node3D/Trigger110" index="5" unique_id=2046222328]
+script = ExtResource("16_c7vge")
+gravity = Vector3(0, -15, 0)
+
+[node name="Trigger96" parent="Node3D" index="7" unique_id=83479402 instance=ExtResource("trigger_tscn_res")]
+transform = Transform3D(7.944652e-08, 0, 0.1, 0, 4.9999995, 0, -10, 0, -8.742278e-09, -753.1116, 49.5, 618.7024)
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger96" index="3" unique_id=1570854778]
 script = ExtResource("14_sk26j")
 height = 3.0
 
-[node name="Trigger99" parent="Node3D" index="9" unique_id=900253675 instance=ExtResource("trigger_tscn_res")]
-transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -763, 49.5, 623)
+[node name="Trigger99" parent="Node3D" index="8" unique_id=900253675 instance=ExtResource("trigger_tscn_res")]
+transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -743.24963, 49.5, 608.15735)
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger99" index="3" unique_id=477892564]
 script = ExtResource("14_sk26j")
 height = 3.0
 
-[node name="Trigger103" parent="Node3D" index="10" unique_id=1573476265 instance=ExtResource("trigger_tscn_res")]
-transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -768, 49.5, 636)
+[node name="Trigger103" parent="Node3D" index="9" unique_id=1573476265 instance=ExtResource("trigger_tscn_res")]
+transform = Transform3D(-10, 0, -1.3113417e-08, 0, 4.9999995, 0, 3.5766737e-07, 0, -0.1, -764.78125, 49.5, 629.8528)
 
 [node name="Jump" type="Node3D" parent="Node3D/Trigger103" index="3" unique_id=336862940]
 script = ExtResource("14_sk26j")
@@ -15001,10 +15011,11 @@ shape = SubResource("ConvexPolygonShape3D_rmjr1")
 
 [node name="Trigger32" parent="PART 3/road part/泥土底座 (2)/草地面 (2)" parent_id_path=PackedInt32Array(1595206433) index="1" unique_id=2064529197 instance=ExtResource("trigger_tscn_res")]
 transform = Transform3D(-0.43859655, -2.2182443e-08, 7.189158e-08, -5.057609e-07, 0.4, -3.1643123e-07, -1.1989441e-06, -2.2732132e-07, -0.28735635, -0.2109375, 0.75409335, 0.5545654)
+debug_mode = true
 
 [node name="Jump" type="Node3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" index="3" unique_id=1846773385]
 script = ExtResource("14_sk26j")
-height = 4.2
+height = 5.0
 
 [node name="jumpre" type="Node3D" parent="PART 3/road part/泥土底座 (2)/草地面 (2)/Trigger32" index="4" unique_id=1466005476]
 transform = Transform3D(-5.0000005, -2.5287983e-07, 8.19564e-07, -1.2644023e-06, 1, -7.9107804e-07, -4.1723256e-06, -7.910782e-07, -1.0000001, -449.5987, -0.34803724, 323.6499)
@@ -15637,6 +15648,13 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 3/road part (2)/泥土底座 (7)/草地面 (5)2/StaticBody3D" index="0" unique_id=1437417720]
 shape = SubResource("ConvexPolygonShape3D_vy8j2")
+
+[node name="Trigger" parent="PART 3/road part (2)/泥土底座 (7)/草地面 (5)2" parent_id_path=PackedInt32Array(1625484919) index="1" unique_id=1748766601 instance=ExtResource("trigger_tscn_res")]
+transform = Transform3D(0.21929838, 0, 0, 0, 1.0000002, 0, 0, 0, 0.71839154, -0.33803558, 1.0049632, 0)
+debug_mode = true
+
+[node name="fuckjump" type="Node3D" parent="PART 3/road part (2)/泥土底座 (7)/草地面 (5)2/Trigger" index="3" unique_id=1369105205]
+script = ExtResource("26_c7vge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 3/road part (2)/泥土底座 (7)" parent_id_path=PackedInt32Array(253723910) index="1" unique_id=259713787]
 collision_layer = 2
@@ -21400,11 +21418,24 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体/StaticBody3D" index="0" unique_id=392620024]
 shape = SubResource("ConvexPolygonShape3D_2frcp")
 
+[node name="Trigger" parent="PART 5/升起地面 （母体" parent_id_path=PackedInt32Array(1909457948) index="6" unique_id=991628362 instance=ExtResource("trigger_tscn_res")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 6.960616, 3.5010376, 24.999998, -3.4974976)
+
+[node name="mov" type="Node3D" parent="PART 5/升起地面 （母体/Trigger" index="3" unique_id=1818308061 node_paths=PackedStringArray("animated_object")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("20_m4i0l")
+animated_object = NodePath("../..")
+target_positions = Array[Vector3]([Vector3(-734.9, 31, 600.7)])
+duration = 1.5
+
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 5/Stalagmite3" parent_id_path=PackedInt32Array(1700408003) index="0" unique_id=855540258]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/Stalagmite3/StaticBody3D" index="0" unique_id=1050527010]
 shape = SubResource("ConvexPolygonShape3D_tnp4k")
+
+[node name="升起地面 （母体 (1)" parent="PART 5" parent_id_path=PackedInt32Array(2035622245) index="3" unique_id=1948567404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -747.4, 19.81002, 617.8)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (1)/升起地面 (1)2" parent_id_path=PackedInt32Array(1353581654) index="0" unique_id=1459920307]
 collision_layer = 2
@@ -21424,7 +21455,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (1)/升起地面 (3)/StaticBody3D" index="0" unique_id=437347539]
 shape = SubResource("ConvexPolygonShape3D_7n3ix")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (1)" parent_id_path=PackedInt32Array(1948567404) index="3" unique_id=1980481935]
+[node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (1)" index="3" unique_id=1980481935]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (1)/StaticBody3D" index="0" unique_id=415214573]
@@ -21490,6 +21521,9 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/hill2/StaticBody3D" index="0" unique_id=2048667316]
 shape = SubResource("ConvexPolygonShape3D_j35bx")
 
+[node name="升起地面 （母体 (2)" parent="PART 5" parent_id_path=PackedInt32Array(2035622245) index="17" unique_id=1596699006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -734.9, 18.464127, 600.7)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (2)/升起地面 (2)2" parent_id_path=PackedInt32Array(1914576556) index="0" unique_id=2141432436]
 collision_layer = 2
 
@@ -21508,7 +21542,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (2)/升起地面 (4)/StaticBody3D" index="0" unique_id=1035116250]
 shape = SubResource("ConvexPolygonShape3D_788e3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (2)" parent_id_path=PackedInt32Array(1596699006) index="3" unique_id=1936201714]
+[node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (2)" index="3" unique_id=1936201714]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (2)/StaticBody3D" index="0" unique_id=12972609]
@@ -21953,7 +21987,10 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/dirt wall with grass (231)/StaticBody3D" index="0" unique_id=2030125713]
 shape = SubResource("ConvexPolygonShape3D_7tw0r")
 
-[node name="TriggerA (4)" parent="PART 5/升起地面 （母体 (4)" parent_id_path=PackedInt32Array(1525283594) index="0" unique_id=1084840403]
+[node name="升起地面 （母体 (4)" parent="PART 5" parent_id_path=PackedInt32Array(2035622245) index="67" unique_id=1525283594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -795.5, 16.70264, 670.2)
+
+[node name="TriggerA (4)" parent="PART 5/升起地面 （母体 (4)" index="0" unique_id=1084840403]
 transform = Transform3D(4.2426405, 0, -0.70710677, 0, 5, 0, 4.2426405, 0, 0.70710677, 1.519958, 38.07, -2)
 
 [node name="MovingPosMax_0" type="Area3D" parent="PART 5/升起地面 （母体 (4)/TriggerA (4)" index="0" unique_id=1228206826]
@@ -21994,7 +22031,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (4)/升起地面 (7)/StaticBody3D" index="0" unique_id=1425560258]
 shape = SubResource("ConvexPolygonShape3D_wtr8v")
 
-[node name="Trigger（第一个环境转换）" parent="PART 5/升起地面 （母体 (4)" parent_id_path=PackedInt32Array(1525283594) index="5" unique_id=1349719143]
+[node name="Trigger（第一个环境转换）" parent="PART 5/升起地面 （母体 (4)" index="5" unique_id=1349719143]
 transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -5.952393, 38.82, 16.20996)
 
 [node name="CameraTrigger_0" parent="PART 5/升起地面 （母体 (4)/Trigger（第一个环境转换）" index="0" unique_id=2140776015 instance=ExtResource("trigger_tscn_res")]
@@ -22014,7 +22051,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (4)/升起地面 (6)/StaticBody3D" index="0" unique_id=675555366]
 shape = SubResource("ConvexPolygonShape3D_qw8i7")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (4)" parent_id_path=PackedInt32Array(1525283594) index="7" unique_id=573970740]
+[node name="StaticBody3D" type="StaticBody3D" parent="PART 5/升起地面 （母体 (4)" index="7" unique_id=573970740]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PART 5/升起地面 （母体 (4)/StaticBody3D" index="0" unique_id=1027402857]
