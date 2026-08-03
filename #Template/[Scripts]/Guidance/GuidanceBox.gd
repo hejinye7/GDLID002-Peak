@@ -6,29 +6,34 @@ class_name GuidanceBox
 @export var can_be_triggered: bool = true
 @export var have_line: bool = true
 
-var _player: CharacterBody3D
+var _player: Player
 var _root: Node3D
 var _sprite: Sprite3D
 var _trigger_effect: PackedScene
 var _index: int = 0
+var _initialized: bool = false
 
 var triggered: bool = false
 var _displayed: bool = false
 
 func _ready() -> void:
+	_try_initialize()
+
+func _try_initialize() -> bool:
+	if _initialized:
+		return true
+
+	var player: Player = Player.instance
+	if not is_instance_valid(player):
+		return false
+
+	_player = player
 	_root = $".."
 	_sprite = $"../Sprite3D"
 	_trigger_effect = load("res://#Template/[Resources]/Triggered.tscn")
-	_try_init_player()
-
-func _try_init_player() -> bool:
-	if _player:
-		return true
-	if Player.instance:
-		_player = Player.instance
-		_check_initial_distance()
-		return true
-	return false
+	_initialized = true
+	_check_initial_distance()
+	return true
 
 func _check_initial_distance() -> void:
 	var dist_sq: float = global_position.distance_squared_to(_player.global_position)
@@ -36,10 +41,14 @@ func _check_initial_distance() -> void:
 		_disappear(false)
 
 func _process(_delta: float) -> void:
+	if not _try_initialize():
+		return
+
 	if triggered:
 		return
 
-	if not _try_init_player():
+	if not is_instance_valid(_player):
+		_initialized = false
 		return
 
 	var dist_sq: float = global_position.distance_squared_to(_player.global_position)
@@ -74,6 +83,7 @@ func _appear() -> void:
 		_displayed = true
 		_index = LevelManager.checkpoint_count
 		_root.visible = true
+		_sprite.visible = true
 		LevelManager.add_revive_listener(_reset_data)
 
 func _disappear(only_box: bool) -> void:
@@ -81,6 +91,7 @@ func _disappear(only_box: bool) -> void:
 		_sprite.visible = false
 	else:
 		_root.visible = false
+		_sprite.visible = false
 
 func _reset_data() -> void:
 	LevelManager.remove_revive_listener(_reset_data)
